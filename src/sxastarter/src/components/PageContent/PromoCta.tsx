@@ -102,7 +102,7 @@ export const Kiosk = (props: PromoCtaProps): JSX.Element => {
             <h6 className="eyebrow-accent">
               <Text field={props.fields.Eyebrow} />
             </h6>
-            <h1 className="display-6 fw-bold mb-3">
+            <h1 className="display-2 fw-bold mb-3">
               <Text field={props.fields.Title} />
             </h1>
             <div className="promo-cta-text">
