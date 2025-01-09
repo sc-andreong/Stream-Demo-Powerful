@@ -10,10 +10,10 @@ import {
   LinkField,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import useVisibility from 'src/hooks/useVisibility';
 import { ComponentProps } from 'lib/component-props';
 import { DottedAccent } from 'components/NonSitecore/DottedAccent';
 import { IconAccent } from 'components/NonSitecore/IconAccent';
+import useVisibility from 'src/hooks/useVisibility';
 
 interface Fields {
   Eyebrow: Field<string>;

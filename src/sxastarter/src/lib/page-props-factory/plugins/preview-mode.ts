@@ -22,7 +22,7 @@ class PreviewModePlugin implements Plugin {
     if (!context.preview) return props;
 
     if (isComponentLibraryPreviewData(context.previewData)) {
-      const { itemId, componentUid, site, language, renderingId, dataSourceId, version, variant } =
+      const { itemId, componentUid, site, language, renderingId, dataSourceId, version } =
         context.previewData;
 
       const componentService = new RestComponentLayoutService({
@@ -39,7 +39,6 @@ class PreviewModePlugin implements Plugin {
         componentUid,
         renderingId,
         dataSourceId,
-        variant,
         version,
       });
 

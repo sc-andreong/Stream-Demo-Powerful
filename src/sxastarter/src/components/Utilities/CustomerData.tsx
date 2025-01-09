@@ -1,5 +1,5 @@
 import { personalize } from '@sitecore-cloudsdk/personalize/browser';
-import { context } from 'lib/context';
+//import { context } from 'lib/context';
 import { useEffect, useState } from 'react';
 
 export type CustomerDataProps = {
@@ -22,25 +22,25 @@ export const Default = ({}: CustomerDataProps): JSX.Element => {
   // }
 
   function handleClick() {
-    context
-      .getSDK('Events')
-      .then((Events) =>
-        Events.identity({
-          email: 'allison.dorner@example.com',
-          firstName: 'Allison',
-          lastName: 'Dorner',
-          channel: 'WEB',
-          language: 'EN',
-          currency: 'EUR',
-          identifiers: [
-            {
-              id: 'allison.dorner@example.com',
-              provider: 'email',
-            },
-          ],
-        })
-      )
-      .catch((e) => console.debug(e));
+    // context
+    //   .getSDK('Events')
+    //   .then((Events) =>
+    //     Events.identity({
+    //       email: 'allison.dorner@example.com',
+    //       firstName: 'Allison',
+    //       lastName: 'Dorner',
+    //       channel: 'WEB',
+    //       language: 'EN',
+    //       currency: 'EUR',
+    //       identifiers: [
+    //         {
+    //           id: 'allison.dorner@example.com',
+    //           provider: 'email',
+    //         },
+    //       ],
+    //     })
+    //   )
+    //   .catch((e) => console.debug(e));
     console.log('Sent identity event.');
   }
 
