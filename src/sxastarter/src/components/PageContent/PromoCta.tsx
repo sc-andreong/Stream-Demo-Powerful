@@ -33,13 +33,21 @@ export type PromoCtaProps = ComponentProps & {
   fields: Fields;
 };
 
+const PromoDefault = (props: PromoCtaProps): JSX.Element => (
+  <div className={`component promo-cta ${props?.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">Promo CTA</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
   const [isVisible, domRef] = useVisibility();
 
-  return (
+  return props.fields ? (
     <ParallaxProvider>
       <div
         className={`component promo-cta ${props?.params?.styles?.trimEnd()}`}
@@ -83,6 +91,8 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
         </div>
       </div>
     </ParallaxProvider>
+  ) : (
+    <PromoDefault {...props} />
   );
 };
 
