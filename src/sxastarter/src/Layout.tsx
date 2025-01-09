@@ -27,6 +27,8 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
   const fields = route?.fields as RouteFields;
   const isPageEditing = layoutData.sitecore.context.pageEditing;
   const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
+  const theme = layoutData.sitecore.context.theme as string;
+  const contextSiteClass = `site-${theme?.toLowerCase()}`;
 
   return (
     <>
@@ -34,6 +36,10 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={'anonymous'} />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <meta name="description" content="A Verticals demo site."></meta>
         {headLinks.map((headLink) => (
           <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
         ))}
@@ -41,7 +47,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
 
       {/* root placeholder for the app, which we add components to using route data */}
       <ParallaxProvider>
-        <div className={mainClassPageEditing}>
+        <div className={`${mainClassPageEditing} ${contextSiteClass} body`}>
           <header>
             <div id="header">
               {route && <Placeholder name="headless-header" rendering={route} />}
