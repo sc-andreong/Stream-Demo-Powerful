@@ -10,6 +10,7 @@ import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import NotFound from 'src/NotFound';
 import { componentBuilder } from 'temp/componentBuilder';
 import config from 'temp/config';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 const FEAASRender = ({
   notFound,
@@ -33,7 +34,9 @@ const FEAASRender = ({
             <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
           ))}
         </Head>
-        <ComponentLibraryLayout {...layoutData} />
+        <ParallaxProvider>
+          <ComponentLibraryLayout {...layoutData} />
+        </ParallaxProvider>
       </SitecoreContext>
     </ComponentPropsContext>
   );
