@@ -30,6 +30,14 @@ export type ThreeColumnCtaProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: ThreeColumnCtaProps): JSX.Element => (
+  <div className={`component ${props?.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">ThreeColumnsCta</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
@@ -76,7 +84,7 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
     );
   };
 
-  return (
+  return props.fields ? (
     <div
       className={`component component-spaced three-column-cta ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -106,6 +114,8 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
 
@@ -152,7 +162,7 @@ export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
     );
   };
 
-  return (
+  return props.fields ? (
     <div
       className={`component component-spaced three-column-cta with-icons ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -182,6 +192,8 @@ export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
 
@@ -230,7 +242,7 @@ export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
     );
   };
 
-  return (
+  return props.fields ? (
     <div
       className={`component component-spaced three-column-cta with-icons with-icons-compact ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -260,5 +272,7 @@ export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
