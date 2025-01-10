@@ -97,6 +97,8 @@ export const LargeImage = (props: CtaBannerProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageEditing;
   const [isVisible, domRef] = useVisibility();
 
+  console.log('STYLES!!!!!!!!!!!!!!!1', props);
+
   return props.fields ? (
     <div
       className={`component cta-banner component-spaced with-large-image with-dotted-accents ${props.params.styles.trimEnd()}`}
