@@ -33,6 +33,14 @@ export type FiveColumnCtaProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: FiveColumnCtaProps): JSX.Element => (
+  <div className={`component ${props?.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">FiveColumnsCta</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: FiveColumnCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
@@ -67,7 +75,7 @@ export const Default = (props: FiveColumnCtaProps): JSX.Element => {
     );
   };
 
-  return (
+  return props.fields ? (
     <div
       className={`component component-spaced five-column-cta ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -102,5 +110,7 @@ export const Default = (props: FiveColumnCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

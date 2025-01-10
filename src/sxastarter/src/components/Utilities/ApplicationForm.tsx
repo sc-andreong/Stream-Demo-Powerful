@@ -24,10 +24,18 @@ export type ApplicationFormProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: ApplicationFormProps): JSX.Element => (
+  <div className={`component ${props?.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">ApplicationForm</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: ApplicationFormProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
-  return (
+  return props.fields ? (
     <div
       className={`component application-form ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -67,5 +75,7 @@ export const Default = (props: ApplicationFormProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

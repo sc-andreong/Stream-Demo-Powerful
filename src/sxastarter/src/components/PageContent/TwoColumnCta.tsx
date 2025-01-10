@@ -28,6 +28,14 @@ export type TwoColumnCtaProps = ComponentProps & {
   fields: Fields;
 };
 
+const ComponentDefault = (props: TwoColumnCtaProps): JSX.Element => (
+  <div className={`component ${props?.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">TwoColumnsCta</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: TwoColumnCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
@@ -81,7 +89,7 @@ export const Default = (props: TwoColumnCtaProps): JSX.Element => {
     );
   };
 
-  return (
+  return props.fields ? (
     <div
       className={`component two-column-cta pb-5 ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -107,5 +115,7 @@ export const Default = (props: TwoColumnCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

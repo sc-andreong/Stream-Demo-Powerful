@@ -18,6 +18,14 @@ export type LoanCalculatorProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: LoanCalculatorProps): JSX.Element => (
+  <div className={`component ${props?.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">LoanCalculator</span>
+    </div>
+  </div>
+);
+
 const ResultLine = ({ left, right }: { left: ReactNode; right: ReactNode }) => {
   return (
     <div className="row align-items-center justify-content-between">
@@ -59,7 +67,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
     setTotalInterest(parseFloat(totalInterestCalculation.toFixed(2)));
   }, [loanAmount, loanTerm, props.fields.InterestRate.value, props.fields.BankFee.value]);
 
-  return (
+  return props.fields ? (
     <div
       className={`component loan-calculator ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -249,5 +257,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
         />
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

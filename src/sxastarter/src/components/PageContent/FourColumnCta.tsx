@@ -34,6 +34,14 @@ export type FourColumnCtaProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: FourColumnCtaProps): JSX.Element => (
+  <div className={`component ${props?.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">FourColumnsCta</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: FourColumnCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
@@ -77,7 +85,7 @@ export const Default = (props: FourColumnCtaProps): JSX.Element => {
     );
   };
 
-  return (
+  return props.fields ? (
     <div
       className={`component component-spaced four-column-cta ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -114,5 +122,7 @@ export const Default = (props: FourColumnCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

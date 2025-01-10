@@ -29,10 +29,18 @@ export type AuthorWidgetProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: AuthorWidgetProps): JSX.Element => (
+  <div className={`component ${props?.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">AuthorWidget</span>
+    </div>
+  </div>
+);
+
 const AuthorWidgetDefault = (props: AuthorWidgetProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
-  return (
+  return props.fields ? (
     <div
       className={`component author-widget ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -51,13 +59,15 @@ const AuthorWidgetDefault = (props: AuthorWidgetProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
 
 const AuthorWidgetWithSocials = (props: AuthorWidgetProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
-  return (
+  return props.fields ? (
     <div
       className={`component author-widget with-socials ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -89,6 +99,8 @@ const AuthorWidgetWithSocials = (props: AuthorWidgetProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
 

@@ -15,10 +15,18 @@ export type ContactFormProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: ContactFormProps): JSX.Element => (
+  <div className={`component ${props?.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">ContactForm</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: ContactFormProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
-  return (
+  return props.fields ? (
     <div
       className={`component contact-form component-spaced ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
@@ -44,5 +52,7 @@ export const Default = (props: ContactFormProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
