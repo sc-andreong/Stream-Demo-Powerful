@@ -19,7 +19,7 @@ export type RichTextProps = {
 };
 
 const ComponentDefault = (props: RichTextProps): JSX.Element => (
-  <div className={`component ${props.params.styles}`.trimEnd()}>
+  <div className={`component ${props?.params?.styles}`.trimEnd()}>
     <div className="component-content">
       <span className="is-empty-hint">Comparison</span>
     </div>
