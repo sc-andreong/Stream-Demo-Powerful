@@ -8,7 +8,7 @@ import {
   RichText,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
+import { useParallax } from 'react-scroll-parallax';
 
 interface Fields {
   Title: Field<string>;
