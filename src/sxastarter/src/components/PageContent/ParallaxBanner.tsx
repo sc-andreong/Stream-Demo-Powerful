@@ -26,7 +26,7 @@ export type ParallaxBannerProps = {
 };
 
 const ComponentDefault = (props: ParallaxBannerProps): JSX.Element => (
-  <div className={`component parallax-banner-content-inner ${props.params.styles}`.trimEnd()}>
+  <div className={`component parallax-banner-content-inner ${props.params?.styles}`.trimEnd()}>
     <div className="component-content">
       <span className="is-empty-hint">ParallaxBanner</span>
     </div>
@@ -83,7 +83,7 @@ export const Default = (props: ParallaxBannerProps) => {
     <div
       className={`component parallax-banner ${
         isPageEditing ? 'edit-mode' : ''
-      } ${props.params.styles.trimEnd()}`}
+      } ${props.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       {isPageEditing ? (

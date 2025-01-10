@@ -21,7 +21,7 @@ export type AppPromoProps = {
 };
 
 const ComponentDefault = (props: AppPromoProps): JSX.Element => (
-  <div className={`component ${props.params.styles}`.trimEnd()}>
+  <div className={`component ${props.params?.styles}`.trimEnd()}>
     <div className="component-content">
       <span className="is-empty-hint">AppPromo</span>
     </div>
@@ -35,7 +35,7 @@ export const Default = (props: AppPromoProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component app-promo ${props.params.styles.trimEnd()}`}
+      className={`component app-promo ${props.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

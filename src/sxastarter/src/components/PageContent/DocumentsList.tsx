@@ -32,7 +32,7 @@ export type DocumentsListProps = {
 };
 
 const ComponentDefault = (props: DocumentsListProps): JSX.Element => (
-  <div className={`component ${props.params.styles}`.trimEnd()}>
+  <div className={`component ${props.params?.styles}`.trimEnd()}>
     <div className="component-content">
       <span className="is-empty-hint">DocumentsList</span>
     </div>
@@ -76,7 +76,7 @@ export const Default = (props: DocumentsListProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component component-spaced documents-list ${props.params.styles.trimEnd()}`}
+      className={`component component-spaced documents-list ${props.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
