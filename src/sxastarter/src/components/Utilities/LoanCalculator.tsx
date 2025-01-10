@@ -54,7 +54,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
   const [totalInterest, setTotalInterest] = useState(0);
 
   useEffect(() => {
-    const monthlyInterestRate = props.fields?.InterestRate?.value / 100 / 12;
+    const monthlyInterestRate = props.fields?.InterestRate?.value || 0 / 100 / 12;
 
     const monthlyPaymentCalculation =
       (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -loanTerm));
@@ -66,7 +66,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
 
     const totalInterestCalculation =
       totalDebtCalculation - loanAmount - props.fields?.BankFee?.value || 0;
-    setTotalInterest(parseFloat(totalInterestCalculation.toFixed(2)));
+    setTotalInterest(parseFloat(totalInterestCalculation?.toFixed(2)));
   }, [loanAmount, loanTerm, props.fields?.InterestRate?.value, props.fields?.BankFee?.value]);
 
   return props.fields ? (
@@ -220,7 +220,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
             left={t('Monthly payment') || 'Monthly payment'}
             right={
               <>
-                {monthlyPayment.toFixed(2)} <Text field={props.fields.Currency} />
+                {monthlyPayment?.toFixed(2)} <Text field={props.fields.Currency} />
               </>
             }
           />
@@ -245,7 +245,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
           left={t('Total interest') || 'Total interest'}
           right={
             <>
-              {totalInterest.toFixed(2)} <Text field={props.fields.Currency} />
+              {totalInterest?.toFixed(2)} <Text field={props.fields.Currency} />
             </>
           }
         />
@@ -253,7 +253,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
           left={t('Total debt') || 'Total debt'}
           right={
             <>
-              {totalDebt.toFixed(2)} <Text field={props.fields.Currency} />
+              {totalDebt?.toFixed(2)} <Text field={props.fields.Currency} />
             </>
           }
         />
