@@ -253,7 +253,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
           left={t('Total debt') || 'Total debt'}
           right={
             <>
-              {(totalDebt || 0).toFixed(2)} <Text field={props.fields.Currency} />
+              {totalDebt?.toFixed(2)} <Text field={props.fields.Currency} />
             </>
           }
         />
