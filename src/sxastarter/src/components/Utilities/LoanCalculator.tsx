@@ -65,7 +65,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
     setTotalDebt(totalDebtCalculation);
 
     const totalInterestCalculation =
-      totalDebtCalculation - loanAmount - props.fields?.BankFee?.value;
+      totalDebtCalculation - loanAmount - props.fields?.BankFee?.value || 0;
     setTotalInterest(parseFloat(totalInterestCalculation.toFixed(2)));
   }, [loanAmount, loanTerm, props.fields?.InterestRate?.value, props.fields?.BankFee?.value]);
 
