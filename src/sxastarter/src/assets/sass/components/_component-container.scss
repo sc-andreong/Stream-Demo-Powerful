@@ -1,6 +1,7 @@
-@import '@sass/abstracts/mixins';
+@import 'src/assets/sass/abstracts/mixins';
 
-$size-padding: 8px;
+$size-padding: 0.75rem;
+
 .container-wrapper {
   width: 100%;
 }
@@ -9,7 +10,7 @@ $size-padding: 8px;
   position: relative;
   padding: 0 $size-padding;
 
-  @include respond-to(all-mobile) {
+  @include respond-to(mobile-large) {
     padding: 0;
   }
 }
@@ -22,6 +23,12 @@ $size-padding: 8px;
   }
 
   .component-content {
-    @include clearfix();
+    @include clearfix;
+  }
+}
+
+#content > .container-wrapper > .container-default > .component-content > .row > div.component {
+  @include respond-to(mobile-large) {
+    padding: 0 $size-padding;
   }
 }
