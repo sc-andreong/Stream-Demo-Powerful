@@ -34,7 +34,7 @@ export const Default = (props: HeadingCtaProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component heading-cta ${props.params?.styles.trimEnd()}`}
+      className={`component heading-cta ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -72,7 +72,7 @@ export const Compact = (props: HeadingCtaProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component heading-cta compact ${props.params?.styles.trimEnd()}`}
+      className={`component heading-cta compact ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -108,7 +108,7 @@ export const PageHeading = (props: HeadingCtaProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component heading-cta ${props.params?.styles.trimEnd()}`}
+      className={`component heading-cta ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container container-wide">
@@ -146,7 +146,7 @@ export const Centered = (props: HeadingCtaProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component heading-cta ${props.params?.styles.trimEnd()}`}
+      className={`component heading-cta ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

@@ -26,7 +26,7 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return props.fields ? (
-    <div className={`component quote ${props.params?.styles.trimEnd()}`} id={id ? id : undefined}>
+    <div className={`component quote ${props.params?.styles?.trimEnd()}`} id={id ? id : undefined}>
       <svg
         id="Layer_2"
         data-name="Layer 2"
@@ -67,7 +67,7 @@ export const Simple = (props: PromoCtaProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component quote simple ${props.params?.styles.trimEnd()}`}
+      className={`component quote simple ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="row gx-0">

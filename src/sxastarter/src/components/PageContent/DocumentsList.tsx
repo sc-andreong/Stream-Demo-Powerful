@@ -76,7 +76,7 @@ export const Default = (props: DocumentsListProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component component-spaced documents-list ${props.params?.styles.trimEnd()}`}
+      className={`component component-spaced documents-list ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

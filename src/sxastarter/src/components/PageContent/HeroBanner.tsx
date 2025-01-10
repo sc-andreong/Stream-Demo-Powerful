@@ -45,7 +45,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component hero-banner ${props.params?.styles.trimEnd()}`}
+      className={`component hero-banner ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container container-wide">

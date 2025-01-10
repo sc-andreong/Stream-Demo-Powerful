@@ -121,7 +121,7 @@ const ProjectListDefault = (props: ProjectListComponentProps): JSX.Element => {
 
   return (
     <div
-      className={`component project-list ${props.params?.styles.trimEnd()}`}
+      className={`component project-list ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container container-wide">
@@ -151,7 +151,7 @@ const ProjectListMosaic = (props: ProjectListComponentProps): JSX.Element => {
 
   return (
     <div
-      className={`component project-list ${props.params?.styles.trimEnd()}`}
+      className={`component project-list ${props.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
