@@ -26,10 +26,18 @@ export type FeaturesProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: FeaturesProps): JSX.Element => (
+  <div className={`component ${props.params.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">Features</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: FeaturesProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
-  return (
+  return props.fields ? (
     <div
       className={`component features component-spaced ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -69,5 +77,7 @@ export const Default = (props: FeaturesProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

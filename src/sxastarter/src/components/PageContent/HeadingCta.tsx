@@ -19,12 +19,20 @@ export type HeadingCtaProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: HeadingCtaProps): JSX.Element => (
+  <div className={`component ${props.params.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">HeadingCta</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: HeadingCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
-  return (
+  return props.fields ? (
     <div
       className={`component heading-cta ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -52,6 +60,8 @@ export const Default = (props: HeadingCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
 
@@ -60,7 +70,7 @@ export const Compact = (props: HeadingCtaProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
-  return (
+  return props.fields ? (
     <div
       className={`component heading-cta compact ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -86,6 +96,8 @@ export const Compact = (props: HeadingCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
 
@@ -94,7 +106,7 @@ export const PageHeading = (props: HeadingCtaProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
-  return (
+  return props.fields ? (
     <div
       className={`component heading-cta ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -122,6 +134,8 @@ export const PageHeading = (props: HeadingCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
 
@@ -130,7 +144,7 @@ export const Centered = (props: HeadingCtaProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
-  return (
+  return props.fields ? (
     <div
       className={`component heading-cta ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -152,5 +166,7 @@ export const Centered = (props: HeadingCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

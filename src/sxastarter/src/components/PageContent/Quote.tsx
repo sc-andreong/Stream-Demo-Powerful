@@ -14,10 +14,18 @@ export type PromoCtaProps = ComponentProps & {
   fields: Fields;
 };
 
+const ComponentDefault = (props: PromoCtaProps): JSX.Element => (
+  <div className={`component ${props.params.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">Quote</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
-  return (
+  return props.fields ? (
     <div className={`component quote ${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
       <svg
         id="Layer_2"
@@ -49,13 +57,15 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
         <Text field={props.fields.AuthorPosition} />
       </p>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
 
 export const Simple = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
-  return (
+  return props.fields ? (
     <div
       className={`component quote simple ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -74,5 +84,7 @@ export const Simple = (props: PromoCtaProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

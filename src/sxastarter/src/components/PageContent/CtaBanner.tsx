@@ -29,13 +29,21 @@ export type CtaBannerProps = ComponentProps & {
   fields: Fields;
 };
 
+const ComponentDefault = (props: CtaBannerProps): JSX.Element => (
+  <div className={`component ${props.params.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">CtaBanner</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: CtaBannerProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
   const [isVisible, domRef] = useVisibility();
 
-  return (
+  return props.fields ? (
     <div
       className={`component cta-banner component-spaced ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -78,6 +86,8 @@ export const Default = (props: CtaBannerProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
 
@@ -87,7 +97,7 @@ export const LargeImage = (props: CtaBannerProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageEditing;
   const [isVisible, domRef] = useVisibility();
 
-  return (
+  return props.fields ? (
     <div
       className={`component cta-banner component-spaced with-large-image with-dotted-accents ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -130,5 +140,7 @@ export const LargeImage = (props: CtaBannerProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

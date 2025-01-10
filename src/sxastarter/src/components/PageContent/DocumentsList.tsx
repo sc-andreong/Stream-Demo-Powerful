@@ -31,6 +31,14 @@ export type DocumentsListProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: DocumentsListProps): JSX.Element => (
+  <div className={`component ${props.params.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">DocumentsList</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: DocumentsListProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
@@ -66,7 +74,7 @@ export const Default = (props: DocumentsListProps): JSX.Element => {
     );
   };
 
-  return (
+  return props.fields ? (
     <div
       className={`component component-spaced documents-list ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -105,5 +113,7 @@ export const Default = (props: DocumentsListProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

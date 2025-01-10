@@ -25,6 +25,14 @@ export type ParallaxBannerProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: ParallaxBannerProps): JSX.Element => (
+  <div className={`component parallax-banner-content-inner ${props.params.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">ParallaxBanner</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: ParallaxBannerProps) => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
@@ -71,7 +79,7 @@ export const Default = (props: ParallaxBannerProps) => {
     className: 'parallax-banner-foreground',
   };
 
-  return (
+  return props.fields ? (
     <div
       className={`component parallax-banner ${
         isPageEditing ? 'edit-mode' : ''
@@ -91,5 +99,7 @@ export const Default = (props: ParallaxBannerProps) => {
         />
       )}
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };

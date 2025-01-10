@@ -18,12 +18,20 @@ export type RichTextProps = {
   fields: Fields;
 };
 
+const ComponentDefault = (props: RichTextProps): JSX.Element => (
+  <div className={`component ${props.params.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">Comparison</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: RichTextProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
-  return (
+  return props.fields ? (
     <div
       className={`component comparison ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -71,5 +79,7 @@ export const Default = (props: RichTextProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
