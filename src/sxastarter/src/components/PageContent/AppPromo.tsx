@@ -33,11 +33,8 @@ export const Default = (props: AppPromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
-  const parallaxImg = useParallax<HTMLImageElement>({
-    scale: [0.8, 1.2],
-  });
 
-  return props.fields && parallaxImg ? (
+  return props.fields ? (
     <div
       className={`component app-promo ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -60,7 +57,6 @@ export const Default = (props: AppPromoProps): JSX.Element => {
             <img
               src={props.fields.Image.value?.src}
               alt={props.fields.Image.value?.alt as string}
-              ref={parallaxImg.ref}
               className={`${isPageEditing ? 'd-none' : 'd-block'}s mx-lg-auto img-fluid`}
               style={{ transformOrigin: 'bottom' }}
             ></img>
