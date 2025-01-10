@@ -41,20 +41,20 @@ export const Default = (props: ParallaxBannerProps) => {
   const BannerContentBlock = (
     <div className="parallax-banner-content-inner">
       <h1 className="display-3 fw-bold text-center mb-3">
-        <Text field={props.fields.Title} />
+        <Text field={props?.fields?.Title} />
       </h1>
       <div className="fs-5 text-center">
-        <RichText field={props.fields.Text} />
+        <RichText field={props?.fields?.Text} />
 
-        {(isPageEditing || props.fields?.Link?.value?.href) && (
-          <Link field={props.fields.Link} className="button button-main mt-3" />
+        {(isPageEditing || props?.fields?.Link?.value?.href) && (
+          <Link field={props?.fields?.Link} className="button button-main mt-3" />
         )}
       </div>
     </div>
   );
 
   const background: BannerLayer = {
-    image: `${props.fields.BackgroundImage?.value?.src}`,
+    image: `${props?.fields?.BackgroundImage?.value?.src}`,
     translateY: [0, 50],
     opacity: [1, 0.3],
     scale: [1.05, 1, 'easeOutCubic'],
@@ -72,7 +72,7 @@ export const Default = (props: ParallaxBannerProps) => {
   };
 
   const foreground: BannerLayer = {
-    image: `${props.fields.ForegroundImage?.value?.src}`,
+    image: `${props?.fields?.ForegroundImage?.value?.src}`,
     translateY: [0, 10],
     scale: [1, 1.1, 'easeOutCubic'],
     shouldAlwaysCompleteAnimation: true,

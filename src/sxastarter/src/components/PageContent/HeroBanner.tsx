@@ -30,12 +30,20 @@ export type HeroBannerProps = ComponentProps & {
   fields: Fields;
 };
 
+const ComponentDefault = (props: HeroBannerProps): JSX.Element => (
+  <div className={`component ${props.params.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">HeroBanner</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: HeroBannerProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
-  return (
+  return props.fields ? (
     <div
       className={`component hero-banner ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
@@ -76,5 +84,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
         </div>
       </div>
     </div>
+  ) : (
+    <ComponentDefault {...props} />
   );
 };
