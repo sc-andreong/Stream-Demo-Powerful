@@ -60,8 +60,8 @@ export const Default = (props: AppPromoProps): JSX.Element => {
             <img
               src={props.fields.Image.value?.src}
               alt={props.fields.Image.value?.alt as string}
-              ref={parallaxImg.ref}
-              className={`${isPageEditing ? 'd-none' : 'd-block'} mx-lg-auto img-fluid`}
+              ref={parallaxImg.ref || undefined}
+              className={`${isPageEditing ? 'd-none' : 'd-block'}s mx-lg-auto img-fluid`}
               style={{ transformOrigin: 'bottom' }}
             ></img>
           </div>
