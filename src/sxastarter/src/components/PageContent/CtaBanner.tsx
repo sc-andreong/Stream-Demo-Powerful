@@ -43,6 +43,8 @@ export const Default = (props: CtaBannerProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageEditing;
   const [isVisible, domRef] = useVisibility();
 
+  console.log('STYLES!!!!!!!!!!!!!!!1', props);
+
   return props.fields ? (
     <div
       className={`component cta-banner component-spaced ${props.params.styles.trimEnd()}`}
@@ -96,8 +98,6 @@ export const LargeImage = (props: CtaBannerProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
   const [isVisible, domRef] = useVisibility();
-
-  console.log('STYLES!!!!!!!!!!!!!!!1', props);
 
   return props.fields ? (
     <div
