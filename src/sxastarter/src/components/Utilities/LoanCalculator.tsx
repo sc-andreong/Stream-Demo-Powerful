@@ -50,7 +50,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
     Math.round((props.fields?.MinTerm?.value + props.fields?.MaxTerm?.value) / 2)
   );
   const [monthlyPayment, setMonthlyPayment] = useState(0);
-  const [totalDebt, setTotalDebt] = useState(0);
+  const [totalDebt, setTotalDebt] = useState(0.0);
   const [totalInterest, setTotalInterest] = useState(0);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
     setMonthlyPayment(monthlyPaymentCalculation);
 
     const totalDebtCalculation =
-      monthlyPaymentCalculation * loanTerm + (props.fields?.BankFee?.value || 0);
+      monthlyPaymentCalculation * loanTerm + (props.fields?.BankFee?.value || 0.0);
     setTotalDebt(totalDebtCalculation);
 
     const totalInterestCalculation =
