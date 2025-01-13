@@ -30,7 +30,7 @@ export type CtaBannerProps = ComponentProps & {
 };
 
 const ComponentDefault = (props: CtaBannerProps): JSX.Element => (
-  <div className={`component ${props?.params?.styles}`.trimEnd()}>
+  <div className={`component ${props.params.styles}`.trimEnd()}>
     <div className="component-content">
       <span className="is-empty-hint">CtaBanner</span>
     </div>
@@ -45,7 +45,7 @@ export const Default = (props: CtaBannerProps): JSX.Element => {
 
   return props.fields ? (
     <div
-      className={`component cta-banner component-spaced ${props.params?.styles?.trimEnd()}`}
+      className={`component cta-banner component-spaced ${props.params.styles.trimEnd()}`}
       id={id ? id : undefined}
       ref={domRef}
     >
