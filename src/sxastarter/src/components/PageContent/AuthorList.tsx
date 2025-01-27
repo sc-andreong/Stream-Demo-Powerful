@@ -38,6 +38,8 @@ interface AuthorListComponentProps {
 }
 
 const AuthorListDefault = (props: AuthorListComponentProps): JSX.Element => {
+  console.log('AuthorListDefault props:', props);
+
   const id = props.params.RenderingIdentifier;
   const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
   const { sitecoreContext } = useSitecoreContext();
@@ -88,6 +90,8 @@ const AuthorListDefault = (props: AuthorListComponentProps): JSX.Element => {
 };
 
 const AuthorListSlider = (props: AuthorListComponentProps): JSX.Element => {
+  console.log('AuthorListSlider props:', props);
+
   const id = props.params.RenderingIdentifier;
   const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
 
@@ -138,6 +142,8 @@ const AuthorListSlider = (props: AuthorListComponentProps): JSX.Element => {
 };
 
 const AuthorListSimple = (props: AuthorListComponentProps): JSX.Element => {
+  console.log('AuthorListSimple props:', props);
+
   const id = props.params.RenderingIdentifier;
   const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
   const { sitecoreContext } = useSitecoreContext();
