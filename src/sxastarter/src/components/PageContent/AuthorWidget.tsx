@@ -106,7 +106,5 @@ const AuthorWidgetWithSocials = (props: AuthorWidgetProps): JSX.Element => {
 
 console.log(AuthorWidgetDefault);
 
-export const Default = withDatasourceCheck({
-  editingErrorComponent: () => <div>AuthorWidget datasource error</div>,
-})<AuthorWidgetProps>(AuthorWidgetDefault);
+export const Default = withDatasourceCheck()<AuthorWidgetProps>(AuthorWidgetDefault);
 export const WithSocials = withDatasourceCheck()<AuthorWidgetProps>(AuthorWidgetWithSocials);
