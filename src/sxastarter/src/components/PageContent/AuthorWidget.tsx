@@ -4,7 +4,6 @@ import {
   ImageField,
   Image,
   Text,
-  withDatasourceCheck,
   ComponentParams,
   ComponentRendering,
   LinkField,
@@ -37,7 +36,7 @@ const ComponentDefault = (props: AuthorWidgetProps): JSX.Element => (
   </div>
 );
 
-const AuthorWidgetDefault = (props: AuthorWidgetProps): JSX.Element => {
+export const Default = (props: AuthorWidgetProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return props.fields ? (
@@ -64,7 +63,7 @@ const AuthorWidgetDefault = (props: AuthorWidgetProps): JSX.Element => {
   );
 };
 
-const AuthorWidgetWithSocials = (props: AuthorWidgetProps): JSX.Element => {
+export const WithSocials = (props: AuthorWidgetProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return props.fields ? (
@@ -103,6 +102,3 @@ const AuthorWidgetWithSocials = (props: AuthorWidgetProps): JSX.Element => {
     <ComponentDefault {...props} />
   );
 };
-
-export const Default = withDatasourceCheck()<AuthorWidgetProps>(AuthorWidgetDefault);
-export const WithSocials = withDatasourceCheck()<AuthorWidgetProps>(AuthorWidgetWithSocials);
