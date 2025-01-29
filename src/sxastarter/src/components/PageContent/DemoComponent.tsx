@@ -39,33 +39,33 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
       id={id ? id : undefined}
     >
       <div className="container">
-        <div className="row g-5">
+        <div className="row">
           SingleLine - <Text field={props.fields.SingleLine} />
         </div>
-        {/* <div className="row g-5">
+        <div className="row">
           RichText - <Text field={props.fields.RichText} />
         </div>
-        <div className="row g-5">
+        <div className="row">
           Integer - <Text field={props.fields.Integer} />
         </div>
-        <div className="row g-5">
+        <div className="row">
           Number - <Text field={props.fields.Number} />
         </div>
-        <div className="row g-5">
+        <div className="row">
           Date - <Text field={props.fields.Date} />
         </div>
-        <div className="row g-5">
+        <div className="row">
           Datetime - <Text field={props.fields.Datetime} />
         </div>
-        <div className="row g-5">
+        <div className="row">
           MultiLine - <Text field={props.fields.MultiLine} />
         </div>
-        <div className="row g-5">Checklist - {JSON.stringify(props.fields.Checklist)}</div>
-        <div className="row g-5">Checkbox - {JSON.stringify(props.fields.Checkbox)}</div>
-        <div className="row g-5">Multilist - {JSON.stringify(props.fields.Multilist)}</div>
-        <div className="row g-5">
+        <div className="row">Checklist - {JSON.stringify(props.fields.Checklist)}</div>
+        <div className="row">Checkbox - {JSON.stringify(props.fields.Checkbox)}</div>
+        <div className="row">Multilist - {JSON.stringify(props.fields.Multilist)}</div>
+        <div className="row">
           MultilistWithSearch - {JSON.stringify(props.fields.MultilistWithSearch)}
-        </div> */}
+        </div>
       </div>
     </div>
   ) : (
