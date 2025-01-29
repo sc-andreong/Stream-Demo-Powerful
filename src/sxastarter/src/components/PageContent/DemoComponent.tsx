@@ -31,6 +31,8 @@ const ComponentDefault = (props: DemoComponentProps): JSX.Element => (
 export const Default = (props: DemoComponentProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
+  console.log('DemoComponent', props.fields);
+
   return props.fields ? (
     <div
       className={`component demo-component ${props.params?.styles?.trimEnd()}`}
@@ -40,7 +42,7 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
         <div className="row g-5">
           SingleLine - <Text field={props.fields.SingleLine} />
         </div>
-        <div className="row g-5">
+        {/* <div className="row g-5">
           RichText - <Text field={props.fields.RichText} />
         </div>
         <div className="row g-5">
@@ -63,7 +65,7 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
         <div className="row g-5">Multilist - {JSON.stringify(props.fields.Multilist)}</div>
         <div className="row g-5">
           MultilistWithSearch - {JSON.stringify(props.fields.MultilistWithSearch)}
-        </div>
+        </div> */}
       </div>
     </div>
   ) : (
