@@ -39,32 +39,32 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
       id={id ? id : undefined}
     >
       <div className="container">
-        <div className="row">
+        <div className="row pt-2">
           SingleLine - <Text field={props.fields.SingleLine} />
         </div>
-        <div className="row">
+        <div className="row pt-2">
           RichText - <Text field={props.fields.RichText} />
         </div>
-        <div className="row">
+        <div className="row pt-2">
           Integer - <Text field={props.fields.Integer} />
         </div>
-        <div className="row">
+        <div className="row pt-2">
           Number - <Text field={props.fields.Number} />
         </div>
-        <div className="row">
+        <div className="row pt-2">
           Date - <Text field={props.fields.Date} />
         </div>
-        <div className="row">
+        <div className="row pt-2">
           Datetime - <Text field={props.fields.Datetime} />
         </div>
-        <div className="row">
+        <div className="row pt-2">
           MultiLine - <Text field={props.fields.MultiLine} />
         </div>
-        <div className="row">Checklist - {JSON.stringify(props.fields.Checklist)}</div>
-        <div className="row">Checkbox - {JSON.stringify(props.fields.Checkbox)}</div>
-        <div className="row">Multilist - {JSON.stringify(props.fields.Multilist)}</div>
-        <div className="row">
-          MultilistWithSearch - {JSON.stringify(props.fields.MultilistWithSearch)}
+        <div className="row pt-2">Checklist - {JSON.stringify(props.fields.Checklist.value)}</div>
+        <div className="row pt-2">Checkbox - {props.fields.Checkbox.value.toString()}</div>
+        <div className="row pt-2">Multilist - {JSON.stringify(props.fields.Multilist.value)}</div>
+        <div className="row pt-2">
+          MultilistWithSearch - {JSON.stringify(props.fields.MultilistWithSearch.value)}
         </div>
       </div>
     </div>
