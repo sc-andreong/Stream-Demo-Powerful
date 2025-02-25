@@ -13,6 +13,8 @@ interface Fields {
   Checkbox: Field<string>;
   Multilist: Field<unknown>;
   MultilistWithSearch: Field<unknown>;
+  Droplist: Field<unknown>;
+  Droplink: Field<unknown>;
 }
 
 export type DemoComponentProps = {
@@ -66,6 +68,8 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
         <div className="row pt-2">
           MultilistWithSearch - {JSON.stringify(props.fields.MultilistWithSearch.value)}
         </div>
+        <div className="row pt-2">Droplist - {JSON.stringify(props.fields.Droplist.value)}</div>
+        <div className="row pt-2">Droplink - {JSON.stringify(props.fields.Droplink.value)}</div>
       </div>
     </div>
   ) : (
