@@ -15,6 +15,7 @@ interface Fields {
   MultilistWithSearch: Field<unknown>;
   Droplist: Field<string>;
   Droplink: Field<unknown>;
+  Taglist: Field<unknown>;
 }
 
 export type DemoComponentProps = {
@@ -70,6 +71,7 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
         </div>
         <div className="row pt-2">Droplist - {props.fields.Droplist.value}</div>
         <div className="row pt-2">Droplink - {JSON.stringify(props.fields.Droplink.value)}</div>
+        <div className="row pt-2">Taglist - {JSON.stringify(props.fields.Taglist.value)}</div>
       </div>
     </div>
   ) : (
