@@ -40,3 +40,19 @@ export const QaVariant = (props: QAWBProps): JSX.Element => {
     </div>
   );
 };
+
+export const QA1 = (props: QAWBProps): JSX.Element => {
+  const text = props.fields ? (
+    <JssRichText field={props.fields.TitleQA} />
+  ) : (
+    <span className="is-empty-hint">QA1</span>
+  );
+  const id = props.params.RenderingIdentifier;
+
+  return (
+    <div className={`component QA_WB ${props.params.styles?.trimEnd()}`} id={id ? id : undefined}>
+      <div>This is QA1</div>
+      <div className="component-content">{text}</div>
+    </div>
+  );
+};
