@@ -2,17 +2,17 @@ import React from 'react';
 import { Field, RichText as JssRichText } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
-  Text: Field<string>;
+  TitleQA: Field<string>;
 }
 
-export type RichTextProps = {
+export type QAWBProps = {
   params: { [key: string]: string };
   fields: Fields;
 };
 
-export const Default = (props: RichTextProps): JSX.Element => {
+export const Default = (props: QAWBProps): JSX.Element => {
   const text = props.fields ? (
-    <JssRichText field={props.fields.Text} />
+    <JssRichText field={props.fields.TitleQA} />
   ) : (
     <span className="is-empty-hint">QA_WB</span>
   );
@@ -25,9 +25,9 @@ export const Default = (props: RichTextProps): JSX.Element => {
   );
 };
 
-export const QaVariant = (props: RichTextProps): JSX.Element => {
+export const QaVariant = (props: QAWBProps): JSX.Element => {
   const text = props.fields ? (
-    <JssRichText field={props.fields.Text} />
+    <JssRichText field={props.fields.TitleQA} />
   ) : (
     <span className="is-empty-hint">QA_WB</span>
   );
