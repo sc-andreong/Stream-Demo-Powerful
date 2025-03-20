@@ -17,6 +17,7 @@ interface Fields {
   Droplink: Field<unknown>;
   Taglist: Field<unknown>;
   GeneralLink: Field<unknown>;
+  FileField: Field<unknown>;
 }
 
 export type DemoComponentProps = {
@@ -75,7 +76,8 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
         <div className="row pt-2">Taglist - {JSON.stringify(props.fields.Taglist.value)}</div>
         <div className="row pt-2">
           GeneralLink - {JSON.stringify(props.fields.GeneralLink.value)}
-        </div>
+        </div>        
+        <div className="row pt-2">FileField - {JSON.stringify(props.fields.FileField.value)}</div>
       </div>
     </div>
   ) : (
