@@ -1,17 +1,17 @@
 import React from 'react';
-import { Field, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, RichText, RichTextField, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
-  Value0: Field<string>;
-  Value1: Field<string>;
-  Value2: Field<string>;
-  Value3: Field<string>;
-  Value4: Field<string>;
-  Value5: Field<string>;
-  Value6: Field<string>;
-  Value7: Field<string>;
-  Value8: Field<string>;
-  Value9: Field<string>;
+  SingleLine1: Field<string>;
+  SingleLine2: Field<string>;
+  MultiLine1: Field<string>;
+  MultiLine2: Field<string>;
+  RichText1: RichTextField;
+  RichText2: RichTextField;
+  Integer1: Field<string>;
+  Integer2: Field<string>;
+  Number1: Field<string>;
+  Number2: Field<string>;
 }
 
 export type QAProps = {
@@ -35,34 +35,34 @@ export const Default = (props: QAProps): JSX.Element => {
       id={id ? id : undefined}
     >
       <div className="subtitle">
-        <Text field={props.fields?.Value0} />
+        <Text field={props.fields?.SingleLine1} />
       </div>
       <p className="subtitle">
-        <Text field={props.fields?.Value1} />
+        <Text field={props.fields?.SingleLine2} />
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Value2} />
+        <Text field={props.fields?.MultiLine1} />
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Value3} />
+        <Text field={props.fields?.MultiLine2} />
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Value4} />
+        <RichText field={props.fields?.RichText1} />
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Value5} />
+        <RichText field={props.fields?.RichText2} />
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Value6} />
+        <Text field={props.fields?.Integer1} />
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Value7} />
+        <Text field={props.fields?.Integer2} />
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Value8} />
+        <Text field={props.fields?.Number1} />
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Value9} />
+        <Text field={props.fields?.Number2} />
       </p>
     </div>
   ) : (
