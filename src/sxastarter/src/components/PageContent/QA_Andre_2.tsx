@@ -14,10 +14,10 @@ interface Fields {
   Number2: Field<string>;
   DropList1: Field<string>;
   DropList2: Field<string>;
-  DropLink1: Field<string>;
-  DropLink2: Field<string>;
-  DropTree1: Field<string>;
-  DropTree2: Field<string>;
+  DropLink1: Field<unknown>;
+  DropLink2: Field<unknown>;
+  DropTree1: Field<unknown>;
+  DropTree2: Field<unknown>;
 }
 
 export type QAProps = {
@@ -96,27 +96,27 @@ export const Default = (props: QAProps): JSX.Element => {
           <Text field={props.fields?.DropList1} />
         </p>
         <p className="subtitle">
-          <Text field={props.fields?.DropList1} />
+          <Text field={props.fields?.DropList2} />
         </p>
       </div>
 
       <div className="container">
         <p className="title">Drop Link</p>
         <p className="subtitle">
-          <Text field={props.fields?.DropLink1} />
+          <Text>{props.fields.DropLink1.value}</Text>
         </p>
         <p className="subtitle">
-          <Text field={props.fields?.DropLink2} />
+          <Text>{props.fields.DropLink2.value}</Text>
         </p>
       </div>
 
       <div className="container">
         <p className="title">Drop Tree</p>
         <p className="subtitle">
-          <Text field={props.fields?.DropTree1} />
+          <Text>{props.fields.DropTree1.value}</Text>
         </p>
         <p className="subtitle">
-          <Text field={props.fields?.DropTree2} />
+          <Text>{props.fields.DropTree2.value}</Text>
         </p>
       </div>
     </div>
