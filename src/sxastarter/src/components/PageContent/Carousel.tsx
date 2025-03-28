@@ -41,11 +41,11 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageEditing;
 
   const handleNext = () => {
-    setIndex((prevIndex) => (prevIndex < props.fields.items.length - 1 ? prevIndex + 1 : 0));
+    setIndex((prevIndex) => (prevIndex < props.fields?.items.length - 1 ? prevIndex + 1 : 0));
   };
 
   const handlePrev = () => {
-    setIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : props.fields.items.length - 1));
+    setIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : props.fields?.items.length - 1));
   };
 
   return (
@@ -54,7 +54,7 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
       id={id ? id : undefined}
     >
       <div className="carousel-inner">
-        {props.fields.items.map((item, i) => (
+        {props.fields?.items.map((item, i) => (
           <div key={i} className={'carousel-item ' + (i == index ? 'active' : '')}>
             {!isPageEditing && item.fields?.Video?.value?.src ? (
               <video
@@ -93,7 +93,7 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
         ))}
       </div>
       <ol className="carousel-indicators">
-        {props.fields.items.map((_item, i) => (
+        {props.fields?.items.map((_item, i) => (
           <li
             key={i}
             aria-label="Slide"
