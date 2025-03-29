@@ -67,39 +67,38 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
         </div>
         <div className="row pt-2">
           <strong>Checklist</strong> -{' '}
-          {(props.fields.Checklist.value as unknown[])
-            .map((item: { label: string }) => item?.label)
-            .join(', ')}
+          {Array.isArray(props.fields.Checklist.value)
+            ? props.fields.Checklist.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
         </div>
         <div className="row pt-2">
           <strong>Checkbox</strong> - {props.fields.Checkbox.value.toString()}
         </div>
         <div className="row pt-2">
           <strong>Multilist</strong> -{' '}
-          {(props.fields.Multilist.value as unknown[])
-            .map((item: { label: string }) => item?.label)
-            .join(', ')}
+          {Array.isArray(props.fields.Multilist.value)
+            ? props.fields.Multilist.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
         </div>
         <div className="row pt-2">
           <strong>MultilistWithSearch</strong> -{' '}
-          {(props.fields.MultilistWithSearch.value as unknown[])
-            .map((item: { label: string }) => item?.label)
-            .join(', ')}
+          {Array.isArray(props.fields.MultilistWithSearch.value)
+            ? props.fields.MultilistWithSearch.value
+                .map((item: { label: string }) => item?.label)
+                .join(', ')
+            : ''}
         </div>
         <div className="row pt-2">
           <strong>Droplist</strong> - {props.fields.Droplist.value}
         </div>
         <div className="row pt-2">
-          <strong>Droplink</strong> -{' '}
-          {(props.fields.Droplink.value as unknown[])
-            .map((item: { label: string }) => item?.label)
-            .join(', ')}
+          <strong>Droplink</strong> - {JSON.stringify(props.fields.Droplink.value)}
         </div>
         <div className="row pt-2">
           <strong>Taglist</strong> -{' '}
-          {(props.fields.Taglist.value as unknown[])
-            .map((item: { label: string }) => item?.label)
-            .join(', ')}
+          {Array.isArray(props.fields.Taglist.value)
+            ? props.fields.Taglist.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
         </div>
         <div className="row pt-2">
           <strong>GeneralLink</strong> - <Link field={props.fields.GeneralLink.value} />
