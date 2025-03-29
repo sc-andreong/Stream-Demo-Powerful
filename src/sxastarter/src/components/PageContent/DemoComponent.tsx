@@ -23,6 +23,7 @@ interface Fields {
   MultilistWithSearch: Field<unknown>;
   Droplist: Field<string>;
   Droplink: Field<{ label: string }>;
+  Droptree: Field<{ label: string }>;
   Taglist: Field<unknown>;
   GeneralLink: Field<LinkField>;
   FileField: Field<unknown>;
@@ -103,6 +104,9 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
         </div>
         <div className="pt-2">
           <strong>Droplink</strong> - {props.fields.Droplink?.value?.label}
+        </div>
+        <div className="pt-2">
+          <strong>Droptree</strong> - {props.fields.Droptree?.value?.label}
         </div>
         <div className="pt-2">
           <strong>Taglist</strong> -{' '}
