@@ -45,43 +45,51 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
     >
       <div className="container">
         <div className="row pt-2">
-          <strong>SingleLine</strong> - <Text field={props.fields.SingleLine} />
+          <strong>SingleLine</strong>
+          <Text field={props.fields.SingleLine} />
         </div>
         <div className="row pt-2">
-          <strong>RichText</strong> - <RichText field={props.fields.RichText} />
+          <strong>RichText</strong>
+          <RichText field={props.fields.RichText} />
         </div>
         <div className="row pt-2">
-          <strong>Integer</strong> - <Text field={props.fields.Integer} />
+          <strong>Integer</strong>
+          <Text field={props.fields.Integer} />
         </div>
         <div className="row pt-2">
-          <strong>Number</strong> - <Text field={props.fields.Number} />
+          <strong>Number</strong>
+          <Text field={props.fields.Number} />
         </div>
         <div className="row pt-2">
-          <strong>Date</strong> - <Text field={props.fields.Date} />
+          <strong>Date</strong>
+          <Text field={props.fields.Date} />
         </div>
         <div className="row pt-2">
-          <strong>Datetime</strong> - <Text field={props.fields.Datetime} />
+          <strong>Datetime</strong>
+          <Text field={props.fields.Datetime} />
         </div>
         <div className="row pt-2">
-          <strong>MultiLine</strong> - <Text field={props.fields.MultiLine} />
+          <strong>MultiLine</strong>
+          <Text field={props.fields.MultiLine} />
         </div>
         <div className="row pt-2">
-          <strong>Checklist</strong> -{' '}
+          <strong>Checklist</strong>
           {Array.isArray(props.fields.Checklist.value)
             ? props.fields.Checklist.value.map((item: { label: string }) => item?.label).join(', ')
             : ''}
         </div>
         <div className="row pt-2">
-          <strong>Checkbox</strong> - {props.fields.Checkbox.value.toString()}
+          <strong>Checkbox</strong>
+          {props.fields.Checkbox.value.toString()}
         </div>
         <div className="row pt-2">
-          <strong>Multilist</strong> -{' '}
+          <strong>Multilist</strong>
           {Array.isArray(props.fields.Multilist.value)
             ? props.fields.Multilist.value.map((item: { label: string }) => item?.label).join(', ')
             : ''}
         </div>
         <div className="row pt-2">
-          <strong>MultilistWithSearch</strong> -{' '}
+          <strong>MultilistWithSearch</strong>
           {Array.isArray(props.fields.MultilistWithSearch.value)
             ? props.fields.MultilistWithSearch.value
                 .map((item: { label: string }) => item?.label)
@@ -89,22 +97,27 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
             : ''}
         </div>
         <div className="row pt-2">
-          <strong>Droplist</strong> - {props.fields.Droplist.value}
+          <strong>Droplist</strong>
+          {props.fields.Droplist.value}
         </div>
         <div className="row pt-2">
-          <strong>Droplink</strong> - {JSON.stringify(props.fields.Droplink.value)}
+          <strong>Droplink</strong>
+          {Array.isArray(props.fields.Droplink.value)
+            ? props.fields.Droplink.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
         </div>
         <div className="row pt-2">
-          <strong>Taglist</strong> -{' '}
+          <strong>Taglist</strong>
           {Array.isArray(props.fields.Taglist.value)
             ? props.fields.Taglist.value.map((item: { label: string }) => item?.label).join(', ')
             : ''}
         </div>
         <div className="row pt-2">
-          <strong>GeneralLink</strong> - <Link field={props.fields.GeneralLink.value} />
+          <strong>GeneralLink</strong>
+          <Link field={props.fields.GeneralLink.value} />
         </div>
         <div className="row pt-2">
-          <strong>FileField</strong> -{' '}
+          <strong>FileField</strong>
           <Link
             field={{
               value: {
