@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Link, LinkField, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   SingleLine: Field<string>;
@@ -16,7 +16,7 @@ interface Fields {
   Droplist: Field<string>;
   Droplink: Field<unknown>;
   Taglist: Field<unknown>;
-  GeneralLink: Field<unknown>;
+  GeneralLink: Field<LinkField>;
   FileField: Field<unknown>;
 }
 
@@ -45,39 +45,78 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
     >
       <div className="container">
         <div className="row pt-2">
-          SingleLine - <Text field={props.fields.SingleLine} />
+          <strong>SingleLine</strong> - <Text field={props.fields.SingleLine} />
         </div>
         <div className="row pt-2">
-          RichText - <Text field={props.fields.RichText} />
+          <strong>RichText</strong> - <RichText field={props.fields.RichText} />
         </div>
         <div className="row pt-2">
-          Integer - <Text field={props.fields.Integer} />
+          <strong>Integer</strong> - <Text field={props.fields.Integer} />
         </div>
         <div className="row pt-2">
-          Number - <Text field={props.fields.Number} />
+          <strong>Number</strong> - <Text field={props.fields.Number} />
         </div>
         <div className="row pt-2">
-          Date - <Text field={props.fields.Date} />
+          <strong>Date</strong> - <Text field={props.fields.Date} />
         </div>
         <div className="row pt-2">
-          Datetime - <Text field={props.fields.Datetime} />
+          <strong>Datetime</strong> - <Text field={props.fields.Datetime} />
         </div>
         <div className="row pt-2">
-          MultiLine - <Text field={props.fields.MultiLine} />
+          <strong>MultiLine</strong> - <Text field={props.fields.MultiLine} />
         </div>
-        <div className="row pt-2">Checklist - {JSON.stringify(props.fields.Checklist.value)}</div>
-        <div className="row pt-2">Checkbox - {props.fields.Checkbox.value.toString()}</div>
-        <div className="row pt-2">Multilist - {JSON.stringify(props.fields.Multilist.value)}</div>
         <div className="row pt-2">
-          MultilistWithSearch - {JSON.stringify(props.fields.MultilistWithSearch.value)}
+          <strong>Checklist</strong> -{' '}
+          {(props.fields.Checklist.value as unknown[])
+            .map((item: { label: string }) => item?.label)
+            .join(', ')}
         </div>
-        <div className="row pt-2">Droplist - {props.fields.Droplist.value}</div>
-        <div className="row pt-2">Droplink - {JSON.stringify(props.fields.Droplink.value)}</div>
-        <div className="row pt-2">Taglist - {JSON.stringify(props.fields.Taglist.value)}</div>
         <div className="row pt-2">
-          GeneralLink - {JSON.stringify(props.fields.GeneralLink.value)}
+          <strong>Checkbox</strong> - {props.fields.Checkbox.value.toString()}
         </div>
-        <div className="row pt-2">FileField - {JSON.stringify(props.fields.FileField.value)}</div>
+        <div className="row pt-2">
+          <strong>Multilist</strong> -{' '}
+          {(props.fields.Multilist.value as unknown[])
+            .map((item: { label: string }) => item?.label)
+            .join(', ')}
+        </div>
+        <div className="row pt-2">
+          <strong>MultilistWithSearch</strong> -{' '}
+          {(props.fields.MultilistWithSearch.value as unknown[])
+            .map((item: { label: string }) => item?.label)
+            .join(', ')}
+        </div>
+        <div className="row pt-2">
+          <strong>Droplist</strong> - {props.fields.Droplist.value}
+        </div>
+        <div className="row pt-2">
+          <strong>Droplink</strong> -{' '}
+          {(props.fields.Droplink.value as unknown[])
+            .map((item: { label: string }) => item?.label)
+            .join(', ')}
+        </div>
+        <div className="row pt-2">
+          <strong>Taglist</strong> -{' '}
+          {(props.fields.Taglist.value as unknown[])
+            .map((item: { label: string }) => item?.label)
+            .join(', ')}
+        </div>
+        <div className="row pt-2">
+          <strong>GeneralLink</strong> - <Link field={props.fields.GeneralLink.value} />
+        </div>
+        <div className="row pt-2">
+          <strong>FileField</strong> -{' '}
+          <Link
+            field={{
+              value: {
+                href: (props.fields.FileField.value as { src: string }).src,
+                text: `${(props.fields.FileField.value as { displayName: string }).displayName}.${(
+                  props.fields.FileField.value as { extension: string }
+                ).extension.toLowerCase()}`,
+              },
+            }}
+          />
+        </div>
       </div>
     </div>
   ) : (
