@@ -103,12 +103,12 @@ export const Default = (props: QAProps): JSX.Element => {
       <div className="container">
         <p className="title">Drop Link</p>
         <p className="subtitle">
-          <Text>{props.fields.DropLink1?.value?.label}</Text>
-          <Text>{JSON.stringify(props.fields.DropLink1)}</Text>
+          <Text>Label: {props.fields.DropLink1?.value?.label}</Text>
+          <Text>JSON: {JSON.stringify(props.fields.DropLink1)}</Text>
         </p>
         <p className="subtitle">
-          <Text>{props.fields.DropLink2?.value?.label}</Text>
-          <Text>{JSON.stringify(props.fields.DropLink2)}</Text>
+          <Text>Label: {props.fields.DropLink2?.value?.label}</Text>
+          <Text>JSON: {JSON.stringify(props.fields.DropLink2)}</Text>
         </p>
       </div>
 
@@ -116,11 +116,11 @@ export const Default = (props: QAProps): JSX.Element => {
         <p className="title">Drop Tree</p>
         <p className="subtitle">
           {props.fields.DropTree1?.value?.label}
-          <Text>{JSON.stringify(props.fields.DropTree1)}</Text>
+          <Text>JSON: {JSON.stringify(props.fields.DropTree1)}</Text>
         </p>
         <p className="subtitle">
           {props.fields.DropTree2?.value?.label}
-          <Text>{JSON.stringify(props.fields.DropTree2)}</Text>
+          <Text>JSON: {JSON.stringify(props.fields.DropTree2)}</Text>
         </p>
       </div>
     </div>
