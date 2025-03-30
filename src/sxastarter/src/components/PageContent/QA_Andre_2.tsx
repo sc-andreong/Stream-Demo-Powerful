@@ -114,12 +114,12 @@ export const Default = (props: QAProps): JSX.Element => {
 
       <div className="container">
         <p className="title">Drop Tree</p>
+        <p className="subtitle">{props.fields.DropTree1?.value?.label}</p>
         <p className="subtitle">
-          {props.fields.DropTree1?.value?.label}
           <Text>JSON: {JSON.stringify(props.fields.DropTree1)}</Text>
         </p>
+        <p className="subtitle">{props.fields.DropTree2?.value?.label}</p>
         <p className="subtitle">
-          {props.fields.DropTree2?.value?.label}
           <Text>JSON: {JSON.stringify(props.fields.DropTree2)}</Text>
         </p>
       </div>
