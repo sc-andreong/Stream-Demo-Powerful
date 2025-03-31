@@ -55,6 +55,12 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
     >
       <div className="container">
         <div className="pt-2">
+          <strong>Image</strong>
+          <div>
+            <Image field={props.fields.Image} />
+          </div>
+        </div>
+        <div className="pt-2">
           <strong>SingleLine</strong> - <Text field={props.fields.SingleLine} />
         </div>
         <div className="pt-2">
@@ -129,12 +135,6 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
               },
             }}
           />
-        </div>
-        <div className="pt-2">
-          <strong>Image</strong>
-          <div>
-            <Image field={props.fields.Image} />
-          </div>
         </div>
       </div>
     </div>
