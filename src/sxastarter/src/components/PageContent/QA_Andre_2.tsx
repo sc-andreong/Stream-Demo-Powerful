@@ -26,6 +26,10 @@ interface Fields {
   TreeList2: Field<unknown>;
   MultiRootTreeList1: Field<unknown>;
   MultiRootTreeList2: Field<unknown>;
+  Date1: Field<string>;
+  Date2: Field<string>;
+  DateTime1: Field<string>;
+  DateTime2: Field<string>;
 }
 
 export type QAProps = {
@@ -117,6 +121,30 @@ export const Default = (props: QAProps): JSX.Element => {
         </p>
         <p className="subtitle">
           <Text field={props.fields?.DropList2} />
+        </p>
+      </div>
+
+      <div className="container">
+        <p className="title">
+          <strong>Date</strong>
+        </p>
+        <p className="subtitle">
+          <Text field={props.fields?.Date1} />
+        </p>
+        <p className="subtitle">
+          <Text field={props.fields?.Date2} />
+        </p>
+      </div>
+
+      <div className="container">
+        <p className="title">
+          <strong>Date Time</strong>
+        </p>
+        <p className="subtitle">
+          <Text field={props.fields?.DateTime1} />
+        </p>
+        <p className="subtitle">
+          <Text field={props.fields?.DateTime2} />
         </p>
       </div>
 
