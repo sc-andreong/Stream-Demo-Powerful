@@ -18,6 +18,14 @@ interface Fields {
   DropLink2: Field<{ label: string }>;
   DropTree1: Field<{ label: string }>;
   DropTree2: Field<{ label: string }>;
+  MultiList1: Field<unknown>;
+  MultiList2: Field<unknown>;
+  MultiListSearch1: Field<unknown>;
+  MultiListSearch2: Field<unknown>;
+  TreeList1: Field<unknown>;
+  TreeList2: Field<unknown>;
+  MultiRootTreeList1: Field<unknown>;
+  MultiRootTreeList2: Field<unknown>;
 }
 
 export type QAProps = {
@@ -130,6 +138,86 @@ export const Default = (props: QAProps): JSX.Element => {
         <p className="subtitle">JSON: {JSON.stringify(props.fields.DropTree1.value)}</p>
         <p className="subtitle">{props.fields.DropTree2?.value?.label}</p>
         <p className="subtitle">JSON: {JSON.stringify(props.fields.DropTree2.value)}</p>
+      </div>
+
+      <div className="container">
+        <p className="title">
+          <strong>Multi List</strong>
+        </p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.MultiList1.value)
+            ? props.fields.MultiList1.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.MultiList1.value)}</p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.MultiList2.value)
+            ? props.fields.MultiList2.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.MultiList2.value)}</p>
+      </div>
+
+      <div className="container">
+        <p className="title">
+          <strong>Multi List Search</strong>
+        </p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.MultiListSearch1.value)
+            ? props.fields.MultiListSearch1.value
+                .map((item: { label: string }) => item?.label)
+                .join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.MultiListSearch1.value)}</p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.MultiListSearch2.value)
+            ? props.fields.MultiListSearch2.value
+                .map((item: { label: string }) => item?.label)
+                .join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.MultiListSearch2.value)}</p>
+      </div>
+
+      <div className="container">
+        <p className="title">
+          <strong>Tree List</strong>
+        </p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.TreeList1.value)
+            ? props.fields.TreeList1.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.TreeList1.value)}</p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.TreeList2.value)
+            ? props.fields.TreeList2.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.TreeList2.value)}</p>
+      </div>
+
+      <div className="container">
+        <p className="title">
+          <strong>Multiroot Tree List</strong>
+        </p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.MultiRootTreeList1.value)
+            ? props.fields.MultiRootTreeList1.value
+                .map((item: { label: string }) => item?.label)
+                .join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.MultiRootTreeList1.value)}</p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.MultiRootTreeList2.value)
+            ? props.fields.MultiRootTreeList2.value
+                .map((item: { label: string }) => item?.label)
+                .join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.MultiRootTreeList2.value)}</p>
       </div>
     </div>
   ) : (
