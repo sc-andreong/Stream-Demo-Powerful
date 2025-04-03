@@ -41,7 +41,9 @@ export const Default = (props: QAProps): JSX.Element => {
       id={id ? id : undefined}
     >
       <div className="container">
-        <p className="title">Single Line</p>
+        <p className="title">
+          <strong>Single Line</strong>
+        </p>
         <div className="subtitle">
           <Text field={props.fields?.SingleLine1} />
         </div>
@@ -51,7 +53,9 @@ export const Default = (props: QAProps): JSX.Element => {
       </div>
 
       <div className="container">
-        <p className="title">Multi Line</p>
+        <p className="title">
+          <strong>Multi Line</strong>
+        </p>
         <p className="subtitle">
           <Text field={props.fields?.MultiLine1} />
         </p>
@@ -61,7 +65,9 @@ export const Default = (props: QAProps): JSX.Element => {
       </div>
 
       <div className="container">
-        <p className="title">Rich Text</p>
+        <p className="title">
+          <strong>Rich Text</strong>
+        </p>
         <p className="subtitle">
           <RichText field={props.fields?.RichText1} />
         </p>
@@ -71,7 +77,9 @@ export const Default = (props: QAProps): JSX.Element => {
       </div>
 
       <div className="container">
-        <p className="title">Integer</p>
+        <p className="title">
+          <strong>Integer</strong>
+        </p>
         <p className="subtitle">
           <Text field={props.fields?.Integer1} />
         </p>
@@ -81,7 +89,9 @@ export const Default = (props: QAProps): JSX.Element => {
       </div>
 
       <div className="container">
-        <p className="title">Number</p>
+        <p className="title">
+          <strong>Number</strong>
+        </p>
         <p className="subtitle">
           <Text field={props.fields?.Number1} />
         </p>
@@ -91,7 +101,9 @@ export const Default = (props: QAProps): JSX.Element => {
       </div>
 
       <div className="container">
-        <p className="title">Drop List</p>
+        <p className="title">
+          <strong>Drop List</strong>
+        </p>
         <p className="subtitle">
           <Text field={props.fields?.DropList1} />
         </p>
@@ -101,7 +113,9 @@ export const Default = (props: QAProps): JSX.Element => {
       </div>
 
       <div className="container">
-        <p className="title">Drop Link</p>
+        <p className="title">
+          <strong>Drop Link</strong>
+        </p>
         <p className="subtitle">{props.fields.DropLink1?.value?.label}</p>
         <p className="subtitle">JSON: {JSON.stringify(props.fields.DropLink1.value)}</p>
         <p className="subtitle">{props.fields.DropLink2?.value?.label}</p>
@@ -109,7 +123,9 @@ export const Default = (props: QAProps): JSX.Element => {
       </div>
 
       <div className="container">
-        <p className="title">Drop Tree</p>
+        <p className="title">
+          <strong>Drop Tree</strong>
+        </p>
         <p className="subtitle">{props.fields.DropTree1?.value?.label}</p>
         <p className="subtitle">JSON: {JSON.stringify(props.fields.DropTree1.value)}</p>
         <p className="subtitle">{props.fields.DropTree2?.value?.label}</p>
