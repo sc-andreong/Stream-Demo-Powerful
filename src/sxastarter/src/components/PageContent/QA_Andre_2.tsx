@@ -30,6 +30,12 @@ interface Fields {
   Date2: Field<string>;
   DateTime1: Field<string>;
   DateTime2: Field<string>;
+  CheckBox1: Field<string>;
+  CheckBox2: Field<string>;
+  CheckList1: Field<unknown>;
+  CheckList2: Field<unknown>;
+  TagList1: Field<unknown>;
+  TagList2: Field<unknown>;
 }
 
 export type QAProps = {
@@ -246,6 +252,50 @@ export const Default = (props: QAProps): JSX.Element => {
             : ''}
         </p>
         <p className="subtitle">JSON: {JSON.stringify(props.fields.MultiRootTreeList2.value)}</p>
+      </div>
+
+      <div className="container">
+        <p className="title">
+          <strong>Check Box</strong>
+        </p>
+        <p className="subtitle">{props.fields.CheckBox1.value.toString()}</p>
+        <p className="subtitle">{props.fields.CheckBox2.value.toString()}</p>
+      </div>
+
+      <div className="container">
+        <p className="title">
+          <strong>Check List</strong>
+        </p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.CheckList1.value)
+            ? props.fields.CheckList1.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.CheckList1.value)}</p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.CheckList2.value)
+            ? props.fields.CheckList2.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.CheckList2.value)}</p>
+      </div>
+
+      <div className="container">
+        <p className="title">
+          <strong>Tag List</strong>
+        </p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.TagList1.value)
+            ? props.fields.TagList1.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.TagList1.value)}</p>
+        <p className="subtitle">
+          {Array.isArray(props.fields.TagList2.value)
+            ? props.fields.TagList2.value.map((item: { label: string }) => item?.label).join(', ')
+            : ''}
+        </p>
+        <p className="subtitle">JSON: {JSON.stringify(props.fields.TagList2.value)}</p>
       </div>
     </div>
   ) : (
