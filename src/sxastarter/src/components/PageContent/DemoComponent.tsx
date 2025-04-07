@@ -125,16 +125,20 @@ export const Default = (props: DemoComponentProps): JSX.Element => {
         </div>
         <div className="pt-2">
           <strong>FileField</strong> -{' '}
-          <Link
-            field={{
-              value: {
-                href: (props.fields.FileField.value as { src: string }).src,
-                text: `${(props.fields.FileField.value as { displayName: string }).displayName}.${(
-                  props.fields.FileField.value as { extension: string }
-                ).extension.toLowerCase()}`,
-              },
-            }}
-          />
+          {props.fields.FileField.value ? (
+            <Link
+              field={{
+                value: {
+                  href: (props.fields.FileField.value as { src: string }).src,
+                  text: `${
+                    (props.fields.FileField.value as { displayName: string }).displayName
+                  }.${(
+                    props.fields.FileField.value as { extension: string }
+                  ).extension.toLowerCase()}`,
+                },
+              }}
+            />
+          ) : null}
         </div>
       </div>
     </div>
