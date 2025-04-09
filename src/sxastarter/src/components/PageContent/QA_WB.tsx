@@ -1,58 +1,57 @@
-import React from 'react';
-import { Field, RichText as JssRichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Image, ImageField, Link, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
-  TitleQA: Field<string>;
+  Title: Field<string>;
+  File: Field<unknown>;
+  Image: ImageField;
 }
 
-export type QAWBProps = {
+export type DemoComponentProps = {
   params: { [key: string]: string };
   fields: Fields;
 };
 
-export const Default = (props: QAWBProps): JSX.Element => {
-  const text = props.fields ? (
-    <JssRichText field={props.fields.TitleQA} />
-  ) : (
-    <span className="is-empty-hint">QA_WB</span>
-  );
+const ComponentDefault = (props: DemoComponentProps): JSX.Element => (
+  <div className={`component ${props.params?.styles}`.trimEnd()}>
+    <div className="component-content">
+      <span className="is-empty-hint">QA WB Default</span>
+    </div>
+  </div>
+);
+
+export const Default = (props: DemoComponentProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
-  return (
-    <div className={`component QA_WB ${props.params.styles?.trimEnd()}`} id={id ? id : undefined}>
-      <div className="component-content">{text}</div>
-    </div>
-  );
-};
+  console.log('DemoComponent', props.fields);
 
-export const QaVariant = (props: QAWBProps): JSX.Element => {
-  const text = props.fields ? (
-    <JssRichText field={props.fields.TitleQA} />
+  return props.fields ? (
+    <div className={`component QA_WB ${props.params?.styles?.trimEnd()}`} id={id ? id : undefined}>
+      <div className="container">
+        <h1 className="row pt-2">
+          Title: <Text field={props.fields.Title} />
+        </h1>
+        <div className="pt-2">
+          <strong>Image</strong>
+          <div>
+            <Image field={props.fields.Image} />
+          </div>
+        </div>
+        <div className="pt-2">
+          <strong>FileField</strong> -{' '}
+          <Link
+            field={{
+              value: {
+                href: (props.fields.File.value as { src: string }).src,
+                text: `${(props.fields.File.value as { displayName: string }).displayName}.${(
+                  props.fields.File.value as { extension: string }
+                ).extension.toLowerCase()}`,
+              },
+            }}
+          />
+        </div>
+      </div>
+    </div>
   ) : (
-    <span className="is-empty-hint">QA_WB</span>
-  );
-  const id = props.params.RenderingIdentifier;
-
-  return (
-    <div className={`component QA_WB ${props.params.styles?.trimEnd()}`} id={id ? id : undefined}>
-      <div>This is QA_Variant</div>
-      <div className="component-content">{text}</div>
-    </div>
-  );
-};
-
-export const QA1 = (props: QAWBProps): JSX.Element => {
-  const text = props.fields ? (
-    <JssRichText field={props.fields.TitleQA} />
-  ) : (
-    <span className="is-empty-hint">QA1</span>
-  );
-  const id = props.params.RenderingIdentifier;
-
-  return (
-    <div className={`component QA_WB ${props.params.styles?.trimEnd()}`} id={id ? id : undefined}>
-      <div>This is QA1</div>
-      <div className="component-content">{text}</div>
-    </div>
+    <ComponentDefault {...props} />
   );
 };
