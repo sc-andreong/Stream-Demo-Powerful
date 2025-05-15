@@ -28,17 +28,23 @@ export const Default = (props: QAProps): JSX.Element => {
       className={`component qa-andre-1 ${props?.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
-      <div className="title">
-        <Text field={props.fields?.Title} />
+      <div className="subtitle">
+        <Text> Line: ${props.params?.LineText}</Text>
       </div>
       <p className="subtitle">
-        <Text field={props.fields?.Name} />
+        <Text> MultiLine: ${props.params?.MultiLineText}</Text>
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Rating} />
+        <Text> DropLink: ${props.params?.Droplink}</Text>
       </p>
       <p className="subtitle">
-        <Text field={props.fields?.Content} />
+        <Text> DropList: ${props.params?.Droplist}</Text>
+      </p>
+      <p className="subtitle">
+        <Text> Integer: ${props.params?.Integer}</Text>
+      </p>
+      <p className="subtitle">
+        <Text> Number: ${props.params?.Number}</Text>
       </p>
     </div>
   ) : (
