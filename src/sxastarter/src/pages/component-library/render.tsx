@@ -19,7 +19,7 @@ const FEAASRender = ({
   headLinks,
 }: SitecorePageProps): JSX.Element => {
   if (notFound) {
-    return <NotFound />;
+    return <NotFound sourceIdx={3} debugData={`is notFound: ${notFound}`} />;
   }
   return (
     <ComponentPropsContext value={componentProps}>
