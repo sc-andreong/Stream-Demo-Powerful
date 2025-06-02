@@ -3,7 +3,13 @@ import Head from 'next/head';
 /**
  * Rendered in case if we have 404 error
  */
-const NotFound = ({ sourceIdx, debugData }): JSX.Element => (
+const NotFound = ({
+  sourceIdx,
+  debugData,
+}: {
+  sourceIdx?: number;
+  debugData?: string;
+}): JSX.Element => (
   <>
     <Head>
       <title>404: NotFound</title>

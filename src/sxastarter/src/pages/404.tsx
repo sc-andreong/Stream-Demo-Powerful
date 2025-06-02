@@ -14,7 +14,12 @@ import clientFactory from 'lib/graphql-client-factory';
 
 const Custom404 = (props: SitecorePageProps): JSX.Element => {
   if (!(props && props.layoutData)) {
-    return <NotFound sourceIdx={2} debugData={`has props: ${Boolean(props)} - has layoutData: ${Boolean(props.layoutData)}`} />;
+    return (
+      <NotFound
+        sourceIdx={2}
+        debugData={`has props: ${Boolean(props)} - has layoutData: ${Boolean(props.layoutData)}`}
+      />
+    );
   }
 
   return (
