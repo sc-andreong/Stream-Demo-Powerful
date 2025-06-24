@@ -4,7 +4,6 @@ import { EditingScripts } from '@sitecore-jss/sitecore-jss-nextjs';
 import BYOC from 'src/byoc';
 import CdpPageView from 'components/CdpPageView';
 import FEAASScripts from 'components/FEAASScripts';
-import config from 'temp/config';
 
 const Scripts = (): JSX.Element => {
   return (
@@ -12,7 +11,7 @@ const Scripts = (): JSX.Element => {
       <BYOC />
       <CdpPageView />
       <FEAASScripts />
-      <EditingScripts sitecoreEdgeUrl={config.sitecoreEdgeUrl} />
+      <EditingScripts />
     </>
   );
 };
