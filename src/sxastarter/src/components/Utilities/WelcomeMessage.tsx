@@ -1,5 +1,5 @@
 import { personalize } from '@sitecore-cloudsdk/personalize/browser';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, JSX } from 'react';
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export type WelcomeMessageProps = {
