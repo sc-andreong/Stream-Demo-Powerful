@@ -22,7 +22,7 @@ class PreviewModePlugin implements Plugin {
     if (!context.preview) return props;
 
     if (isDesignLibraryPreviewData(context.previewData)) {
-      const { itemId, componentUid, site, language, renderingId, dataSourceId, version } =
+      const { itemId, componentUid, site, language, renderingId, dataSourceId, version, mode } =
         context.previewData;
 
       const componentService = new RestComponentLayoutService({
@@ -38,6 +38,7 @@ class PreviewModePlugin implements Plugin {
         renderingId,
         dataSourceId,
         version,
+        mode,
       });
 
       // we can reuse editing service, fortunately
