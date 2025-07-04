@@ -1,5 +1,5 @@
 import { extractFiles } from '@sitecore-jss/sitecore-jss-dev-tools';
-import { ComponentBuilderPlugin, ComponentBuilderPluginConfig } from '.';
+import { ComponentBuilderPlugin, ComponentBuilderPluginConfig } from '..';
 
 /**
  * If consented to, sends components code for code generation learning to XMC
