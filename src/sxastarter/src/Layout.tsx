@@ -1,22 +1,19 @@
-/**
- * This Layout is needed for Starter Kit.
- */
-import React from 'react';
+import { JSX } from 'react';
 import Head from 'next/head';
 import {
   Placeholder,
   LayoutServiceData,
   Field,
-  DesignLibrary,
   HTMLLink,
   RenderingType,
+  DesignLibrary,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 import Scripts from 'src/Scripts';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
-// Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
-// If you're not supporting the Experience Editor, you can remove this.
+// Prefix public assets with a public URL to enable compatibility with Sitecore editors.
+// If you're not supporting Sitecore editors, you can remove this.
 const publicUrl = config.publicUrl;
 
 interface LayoutProps {
@@ -26,11 +23,12 @@ interface LayoutProps {
 
 interface RouteFields {
   [key: string]: unknown;
-  Title?: Field;
+  pageTitle: Field;
 }
 
 const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
+
   const fields = route?.fields as RouteFields;
   const isPageEditing = layoutData.sitecore.context.pageEditing;
   const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
@@ -41,7 +39,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
     <>
       <Scripts />
       <Head>
-        <title>{fields?.Title?.value?.toString() || 'Page'}</title>
+        <title>{fields.pageTitle?.value.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={'anonymous'} />

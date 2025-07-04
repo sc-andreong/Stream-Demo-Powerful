@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import {
@@ -6,7 +7,6 @@ import {
   SitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
-import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import NotFound from 'src/NotFound';
 import { componentBuilder } from 'temp/componentBuilder';
 import config from 'temp/config';
@@ -19,7 +19,7 @@ const FEAASRender = ({
   headLinks,
 }: SitecorePageProps): JSX.Element => {
   if (notFound) {
-    return <NotFound />;
+    return <NotFound sourceIdx={3} debugData={`is notFound: ${notFound}`} />;
   }
   return (
     <ComponentPropsContext value={componentProps}>
@@ -43,11 +43,12 @@ const FEAASRender = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const props = await sitecorePagePropsFactory.create(context);
   return {
-    props,
-    // not found when page not requested through editing render api or notFound set in page-props
-    notFound: props.notFound || !context.preview,
+    props: {
+      feaasSrc: context.query.feaasSrc || null,
+    },
+    // Don't show the page if it's not requested by the api route using the preview mode
+    notFound: !context.preview,
   };
 };
 

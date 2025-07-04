@@ -1,6 +1,6 @@
 import { personalize } from '@sitecore-cloudsdk/personalize/browser';
 //import { context } from 'lib/context';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, JSX } from 'react';
 
 export type CustomerDataProps = {
   params: { [key: string]: string };

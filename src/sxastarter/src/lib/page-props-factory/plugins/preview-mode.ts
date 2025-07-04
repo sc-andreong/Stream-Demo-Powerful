@@ -22,14 +22,12 @@ class PreviewModePlugin implements Plugin {
     if (!context.preview) return props;
 
     if (isDesignLibraryPreviewData(context.previewData)) {
-      const { itemId, componentUid, site, language, renderingId, dataSourceId, version } =
+      const { itemId, componentUid, site, language, renderingId, dataSourceId, version, mode } =
         context.previewData;
 
       const componentService = new RestComponentLayoutService({
-        apiHost: config.sitecoreApiHost,
-        apiKey: config.sitecoreApiKey,
-        siteName: site,
-        configurationName: config.layoutServiceConfigurationName,
+        sitecoreEdgeContextId: config.sitecoreEdgeContextId,
+        sitecoreEdgeUrl: config.sitecoreEdgeUrl,
       });
 
       const componentData = await componentService.fetchComponentData({
@@ -40,6 +38,7 @@ class PreviewModePlugin implements Plugin {
         renderingId,
         dataSourceId,
         version,
+        mode,
       });
 
       // we can reuse editing service, fortunately
