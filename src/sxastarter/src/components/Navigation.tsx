@@ -1,12 +1,5 @@
-import React, { useState } from 'react';
-import {
-  Link,
-  LinkField,
-  Text,
-  TextField,
-  useSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { MiniCart } from './Products/MiniCart';
+import React, { useState, JSX } from 'react';
+import { Link, LinkField, Text, TextField, useSitecoreContext } from '@sitecore-content-sdk/nextjs';
 
 interface Fields {
   Id: string;
@@ -97,23 +90,10 @@ export const Default = (props: NavigationProps): JSX.Element => {
           checked={isOpenMenu}
           onChange={() => handleToggleMenu()}
         />
-        {/* DEMO TEAM CUSTOMIZATION */}
-        <div className="menu-humburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div className="menu-humburger" />
         <div className="component-content">
           <nav>
-            {/* DEMO TEAM CUSTOMIZATION */}
-            <ul>
-              {list}
-              {/* DEMO TEAM CUSTOMIZATION */}
-              <li>
-                <MiniCart />
-              </li>
-              {/* END DEMO TEAM CUSTOMIZATION */}
-            </ul>
+            <ul className="clearfix">{list}</ul>
           </nav>
         </div>
       </label>
