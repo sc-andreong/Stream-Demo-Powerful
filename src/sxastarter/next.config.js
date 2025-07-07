@@ -68,7 +68,7 @@ const nextConfig = {
 
   webpack: (config, options) => {
     if (!options.isServer) {
-      // Add a loader to strip out getServerSideProps and getStaticProps from components in the client bundle
+      // Add a loader to strip out getComponentServerProps from components in the client bundle
       config.module.rules.unshift({
         test: /src\\components\\.*\.tsx$/,
         use: ['@sitecore-content-sdk\\nextjs\\component-props-loader'],
@@ -93,11 +93,11 @@ const nextConfig = {
   // Add sass settings for SXA themes and styles
   sassOptions: {
     importer: new SassAlias({
-      '@sass': path.join(process.cwd(), './src/assets', 'sass'),
+      '@globals': path.join(process.cwd(), './src/assets', 'globals'),
       '@fontawesome': path.join(process.cwd(), './node_modules', 'font-awesome'),
     }).getImporter(),
     // temporary measure until new versions of bootstrap and font-awesome released
-    quietDeps: true,
+    quietDeps: true,    
     silenceDeprecations: ["import", "legacy-js-api"],
   },
 };

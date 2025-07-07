@@ -1,15 +1,6 @@
 import config from './sitecore.config';
-import { enableDebug } from '@sitecore-content-sdk/core';
-import { defineCliConfig } from '@sitecore-content-sdk/nextjs/config';
-import { generateSites, generateMetadata, extractFiles } from '@sitecore-content-sdk/nextjs/tools';
-
-if (process.env.DEBUG) {
-  const debugScopes = process.env.DEBUG.split(',')
-    .map((scope) => scope.trim())
-    .filter(Boolean);
-  console.log(`Debug enabled for scopes: [${debugScopes.join(', ')}]`);
-  enableDebug(process.env.DEBUG);
-}
+import { defineCliConfig } from '@sitecore-content-sdk/nextjs/config-cli';
+import { generateSites, generateMetadata } from '@sitecore-content-sdk/nextjs/tools';
 
 export default defineCliConfig({
   build: {
@@ -18,9 +9,9 @@ export default defineCliConfig({
       generateSites({
         scConfig: config,
       }),
-      extractFiles({
-        scConfig: config,
-      }),
     ],
+  },
+  componentMap: {
+    paths: ['src/components'],
   },
 });
