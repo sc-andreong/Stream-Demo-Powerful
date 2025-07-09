@@ -5,7 +5,7 @@ import { Form } from '@sitecore-content-sdk/nextjs';
 
 // Components imported from the app itself
 import * as Image from 'src/components/Image';
-
+import * as MyComponent from 'src/components/MyComponent';
 
 // Components must be registered within the map to match the string key with component name in Sitecore
 export const componentMap = new Map<string, NextjsContentSdkComponent>([
@@ -13,6 +13,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['FEaaSWrapper', FEaaSWrapper],
   ['Form', Form],
   ['Image', Image],
+  ['MyComponent', MyComponent],
 ]);
 
 export default componentMap;
