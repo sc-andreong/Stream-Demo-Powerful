@@ -10,7 +10,7 @@ export type RichTextProps = {
   fields: Fields;
 };
 
-export const Default = (): JSX.Element => {
+export const MyComponent = (): JSX.Element => {
   return (
     <div className="component rich-text">
       <div className="component-content">text</div>
