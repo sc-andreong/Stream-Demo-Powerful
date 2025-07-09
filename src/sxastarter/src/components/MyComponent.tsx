@@ -1,4 +1,4 @@
-import { Field, RichText } from '@sitecore-content-sdk/nextjs';
+import { Field, RichText as NextJsRichText } from '@sitecore-content-sdk/nextjs';
 import React, { JSX } from 'react';
 
 interface Fields {
@@ -12,7 +12,7 @@ export type RichTextProps = {
 
 export const Default = (props: RichTextProps): JSX.Element => {
   const text = props.fields ? (
-    <RichText field={props.fields.Text} />
+    <NextJsRichText field={props.fields.Text} />
   ) : (
     <span className="is-empty-hint">Rich text</span>
   );
