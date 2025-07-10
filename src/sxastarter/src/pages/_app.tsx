@@ -4,6 +4,7 @@ import Bootstrap from 'src/Bootstrap';
 import 'assets/main.scss';
 import { SitecorePageProps } from '@sitecore-content-sdk/nextjs';
 import { JSX } from 'react';
+import 'assets/main.scss';
 
 function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element {
   const { dictionary, ...rest } = pageProps;

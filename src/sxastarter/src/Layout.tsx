@@ -12,6 +12,7 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import Scripts from 'src/Scripts';
 import SitecoreStyles from 'src/components/content-sdk/SitecoreStyles';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
@@ -27,6 +28,8 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const fields = route?.fields as RouteFields;
   const isPageEditing = layoutData.sitecore.context.pageEditing;
   const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
+  const theme = layoutData.sitecore.context.theme as string;
+  const contextSiteClass = `site-${theme?.toLowerCase()}`;
 
   return (
     <>
@@ -38,29 +41,31 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       </Head>
 
       {/* root placeholder for the app, which we add components to using route data */}
-      <div className={mainClassPageEditing}>
-        {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
-          <DesignLibrary {...layoutData} />
-        ) : (
-          <>
-            <header>
-              <div id="header">
-                {route && <Placeholder name="headless-header" rendering={route} />}
-              </div>
-            </header>
-            <main>
-              <div id="content">
-                {route && <Placeholder name="headless-main" rendering={route} />}
-              </div>
-            </main>
-            <footer>
-              <div id="footer">
-                {route && <Placeholder name="headless-footer" rendering={route} />}
-              </div>
-            </footer>
-          </>
-        )}
-      </div>
+      <ParallaxProvider>
+        <div className={`${mainClassPageEditing} ${contextSiteClass} body`}>
+          {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
+            <DesignLibrary {...layoutData} />
+          ) : (
+            <>
+              <header>
+                <div id="header">
+                  {route && <Placeholder name="headless-header" rendering={route} />}
+                </div>
+              </header>
+              <main>
+                <div id="content">
+                  {route && <Placeholder name="headless-main" rendering={route} />}
+                </div>
+              </main>
+              <footer>
+                <div id="footer">
+                  {route && <Placeholder name="headless-footer" rendering={route} />}
+                </div>
+              </footer>
+            </>
+          )}
+        </div>
+      </ParallaxProvider>
     </>
   );
 };
