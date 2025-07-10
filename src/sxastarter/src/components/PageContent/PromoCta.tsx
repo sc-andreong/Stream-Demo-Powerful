@@ -42,8 +42,8 @@ const PromoDefault = (props: PromoCtaProps): JSX.Element => (
 
 export const Default = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { sitecoreContext } = useSitecoreContext();
-  const isPageEditing = sitecoreContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
   const [isVisible, domRef] = useVisibility();
 
   return props.fields ? (
