@@ -31,6 +31,9 @@ export const Default = (props: ComponentProps): JSX.Element => {
   const enabledPlaceholders = props.params.EnabledPlaceholders.split(',');
   const id = props.params.RenderingIdentifier;
 
+  console.log('ColumnSplitter rendering with params:', props.params);
+  console.log('Enabled placeholders:', enabledPlaceholders);
+
   return (
     <div className={`row component column-splitter ${styles}`} id={id ? id : undefined}>
       {enabledPlaceholders.map((ph, index) => {
