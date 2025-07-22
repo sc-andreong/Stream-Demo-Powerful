@@ -31,7 +31,7 @@ export const Default = (props: ComponentProps): JSX.Element => {
   const enabledPlaceholders = props.params.EnabledPlaceholders.split(',');
   const id = props.params.RenderingIdentifier;
 
-  console.log('ColumnSplitter rendering with params:', props.params);
+  console.log('ColumnSplitter rendering with params:', props);
   console.log('Enabled placeholders:', enabledPlaceholders);
 
   return (
