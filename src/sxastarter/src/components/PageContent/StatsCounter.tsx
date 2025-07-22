@@ -24,8 +24,8 @@ export type StatsCounterProps = {
 
 export const Default = (props: StatsCounterProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   return (
     <div

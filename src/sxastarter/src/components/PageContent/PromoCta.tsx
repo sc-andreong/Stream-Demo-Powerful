@@ -42,8 +42,8 @@ const PromoDefault = (props: PromoCtaProps): JSX.Element => (
 
 export const Default = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
   const [isVisible, domRef] = useVisibility();
 
   return props.fields ? (
@@ -95,8 +95,8 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
 
 export const Kiosk = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
   const [isVisible, domRef] = useVisibility();
 
   return (
@@ -145,8 +145,8 @@ export const Kiosk = (props: PromoCtaProps): JSX.Element => {
 
 export const WithPlaceholderColumn = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
   const [isVisible, domRef] = useVisibility();
 
   return (
@@ -210,8 +210,8 @@ export const WithPlaceholderColumn = (props: PromoCtaProps): JSX.Element => {
 
 export const WithBackgroundImage = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   return (
     <div

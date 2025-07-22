@@ -44,7 +44,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <ParallaxProvider>
         <div className={`${mainClassPageEditing} ${contextSiteClass} body`}>
           {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
-            <DesignLibrary {...layoutData} />
+            <DesignLibrary />
           ) : (
             <>
               <header>

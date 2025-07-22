@@ -25,8 +25,8 @@ export type TestimonialsProps = {
 };
 
 const StarRating = ({ item }: { item: TestimonialItemProps }): JSX.Element => {
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   const rating = item.fields?.Rating.value;
   const ratingField = isPageEditing && <Text field={item.fields?.Rating} />;

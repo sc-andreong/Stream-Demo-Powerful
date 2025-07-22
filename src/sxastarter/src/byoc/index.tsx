@@ -24,13 +24,13 @@ FEAAS.enableNextClientsideComponents(dynamic, ClientBundle);
 import './index.hybrid';
 
 const BYOCInit = (): JSX.Element | null => {
-  const pageContext = React.useContext(SitecoreProviderReactContext).pageContext;
+  const page = React.useContext(SitecoreProviderReactContext).page;
   // Set context properties to be available within BYOC components
   FEAAS.setContextProperties({
     sitecoreEdgeUrl: config.api.edge?.edgeUrl,
     sitecoreEdgeContextId: config.api.edge?.contextId,
-    pageState: pageContext?.pageState || LayoutServicePageState.Normal,
-    siteName: pageContext?.site?.name || config.defaultSite,
+    pageState: page?.layout?.sitecore?.context?.pageState || LayoutServicePageState.Normal,
+    siteName: page.siteName || config.defaultSite,
     eventsSDK: Events,
   });
 

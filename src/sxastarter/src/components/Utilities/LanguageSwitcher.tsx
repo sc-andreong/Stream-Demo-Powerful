@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useCallback, useMemo, useState, JSX } from 'react';
 
 export const Default = (): JSX.Element => {
-  const { pageContext } = useSitecore();
+  const { page } = useSitecore();
 
   const router = useRouter();
   const { pathname, asPath, query } = router;
@@ -43,7 +43,7 @@ export const Default = (): JSX.Element => {
       onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
     >
       <span className="selected-language">
-        {availableLanguages.find((lang) => lang.code === pageContext.language)?.label}
+        {availableLanguages.find((lang) => lang.code === page.locale)?.label}
       </span>
       <svg
         xmlns="http://www.w3.org/2000/svg"

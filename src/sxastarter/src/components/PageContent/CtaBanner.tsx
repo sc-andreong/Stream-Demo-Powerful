@@ -31,8 +31,8 @@ export type CtaBannerProps = ComponentProps & {
 
 export const Default = (props: CtaBannerProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
   const [isVisible, domRef] = useVisibility();
 
   return (
@@ -83,8 +83,8 @@ export const Default = (props: CtaBannerProps): JSX.Element => {
 
 export const LargeImage = (props: CtaBannerProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
   const [isVisible, domRef] = useVisibility();
 
   return (
