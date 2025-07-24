@@ -16,7 +16,7 @@ type PromoProps = {
 const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
   <div className={`component promo ${props.params.styles}`}>
     <div className="component-content">
-      <span className="is-empty-hint">Promo 123456789</span>
+      <span className="is-empty-hint">Promo 12345678987</span>
     </div>
   </div>
 );
