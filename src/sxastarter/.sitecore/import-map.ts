@@ -15,13 +15,13 @@ import { Autoplay, EffectCoverflow, Pagination, Navigation } from 'swiper/module
 import { CountUp } from 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/src/components/NonSitecore/CountUp';
 import { DottedAccent } from 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/src/components/NonSitecore/DottedAccent';
 import { ParallaxBackgroundImage } from 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/src/components/NonSitecore/ParallaxBackgroundImage';
-import Link as Link_df8e105442ab6739571950b92e6da106aa8b653d from 'next/link';
+import NextLink from 'next/link';
 import { FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, TwitterIcon, TwitterShareButton } from 'react-share';
 import { ParallaxBanner, Parallax } from 'react-scroll-parallax';
 import { IconAccent } from 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/src/components/NonSitecore/IconAccent';
 import Head from 'next/head';
 import client from 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/src/lib/sitecore-client';
-import Image as Image_550bd0e752ed33aafd3e0df867096cefb8276fd1 from 'next/image';
+import NextjsImage from 'next/image';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import nextConfig from 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/next.config';
 import { pageView } from '@sitecore-cloudsdk/events/browser';
@@ -114,7 +114,7 @@ const importMap = [
   {
     module: 'next/link',
     exports: [
-      { name: 'Link', value: Link_df8e105442ab6739571950b92e6da106aa8b653d },
+      { name: 'NextLink', value: NextLink },
     ]
   },
   {
@@ -156,7 +156,7 @@ const importMap = [
   {
     module: 'next/image',
     exports: [
-      { name: 'Image', value: Image_550bd0e752ed33aafd3e0df867096cefb8276fd1 },
+      { name: 'NextjsImage', value: NextjsImage },
     ]
   },
   {

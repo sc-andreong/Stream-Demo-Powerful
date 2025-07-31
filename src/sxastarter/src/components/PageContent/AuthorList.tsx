@@ -11,7 +11,7 @@ import {
   RichText,
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { useI18n } from 'next-localization';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -72,9 +72,9 @@ const AuthorListDefault = (props: AuthorListComponentProps): JSX.Element => {
                     <RichText field={author.fields.Bio}></RichText>
                   </div>
                   <div className="d-flex flex-wrap gap-3 justify-content-between align-items-center">
-                    <Link href={author.url} className="button button-secondary">
+                    <NextLink href={author.url} className="button button-secondary">
                       {t('Read more') || 'Read more'}
-                    </Link>
+                    </NextLink>
                   </div>
                 </div>
               </div>
@@ -120,7 +120,7 @@ const AuthorListSlider = (props: AuthorListComponentProps): JSX.Element => {
         >
           {authors?.map((author) => (
             <SwiperSlide key={author.url}>
-              <Link href={author.url} className="wrapper-link">
+              <NextLink href={author.url} className="wrapper-link">
                 <Image field={author.fields.Photo} />
                 <h3 className="fs-4 mt-4">
                   <Text field={author.fields.Name}></Text>
@@ -128,7 +128,7 @@ const AuthorListSlider = (props: AuthorListComponentProps): JSX.Element => {
                 <p>
                   <Text field={author.fields.Position} />
                 </p>
-              </Link>
+              </NextLink>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -166,9 +166,9 @@ const AuthorListSimple = (props: AuthorListComponentProps): JSX.Element => {
                 <div className={`bio ${isPageEditing ? '' : 'clamped'}`}>
                   <RichText field={author.fields.Bio}></RichText>
                 </div>
-                <Link href={author.url} className="button button-simple">
+                <NextLink href={author.url} className="button button-simple">
                   {t('Read more') || 'Read more'}
-                </Link>
+                </NextLink>
               </div>
             </div>
           ))}

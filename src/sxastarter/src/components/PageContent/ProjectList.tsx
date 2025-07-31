@@ -9,7 +9,7 @@ import {
   RichTextField,
   withDatasourceCheck,
 } from '@sitecore-content-sdk/nextjs';
-import Link from 'next/link';
+import NextLink from 'next/link';
 
 interface Fields {
   Title: Field<string>;
@@ -98,7 +98,7 @@ const ProjectFilters = ({
 
 const ProjectGridItem = ({ item }: { item: ProjectListItemProps }) => (
   <div className="project-grid-item">
-    <Link href={item.url} className="wrapper-link">
+    <NextLink href={item.url} className="wrapper-link">
       <Image field={item.fields.Thumbnail} />
       <div className="project-grid-item-content">
         <span className="project-category">
@@ -108,7 +108,7 @@ const ProjectGridItem = ({ item }: { item: ProjectListItemProps }) => (
           <Text field={item.fields.Title} />
         </h3>
       </div>
-    </Link>
+    </NextLink>
   </div>
 );
 

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import NextjsImage from 'next/image';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import nextConfig from 'next.config';
 import { JSX } from 'react';
@@ -34,7 +34,7 @@ const FEAASScripts = (): JSX.Element => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { children, src, alt, ...imgAttributes } = attributes;
     return (
-      <Image
+      <NextjsImage
         height={1920}
         width={1200}
         unoptimized={!shouldOptimize(src)}

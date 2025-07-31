@@ -9,7 +9,7 @@ import {
   RichTextField,
   withDatasourceCheck,
 } from '@sitecore-content-sdk/nextjs';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { useI18n } from 'next-localization';
 
 interface Fields {
@@ -78,9 +78,9 @@ const ArticleListDefault = (props: ArticleListComponentProps): JSX.Element => {
                     <Text field={item.fields.Excerpt}></Text>
                   </p>
                   <div className="d-flex flex-wrap gap-3 justify-content-between align-items-center">
-                    <Link href={item.url} className="button button-secondary">
+                    <NextLink href={item.url} className="button button-secondary">
                       {t('Read more') || 'Read more'}
-                    </Link>
+                    </NextLink>
                   </div>
                 </div>
               </div>
@@ -106,12 +106,12 @@ const ArticleListThreeColumn = (props: ArticleListComponentProps): JSX.Element =
         <div className="row row-gap-3">
           {newsItems?.map((item) => (
             <div className="col-lg-4" key={item.url}>
-              <Link href={item.url} className="wrapper-link">
+              <NextLink href={item.url} className="wrapper-link">
                 <Image field={item.fields.Thumbnail} />
                 <h3 className="fs-4 mt-3">
                   <Text field={item.fields.Title}></Text>
                 </h3>
-              </Link>
+              </NextLink>
             </div>
           ))}
         </div>
@@ -137,9 +137,9 @@ const ArticleListSimplified = (props: ArticleListComponentProps): JSX.Element =>
             <div className="title display-6">{t('News') || 'News'}</div>
           </div>
           <div className="col-auto learn-more">
-            <Link href={allArticlesPageHref} className="button button-simple">
+            <NextLink href={allArticlesPageHref} className="button button-simple">
               {t('See all') || 'See all'} <i className="fa fa-angle-right fs-4" />
-            </Link>
+            </NextLink>
           </div>
         </div>
 
@@ -158,9 +158,9 @@ const ArticleListSimplified = (props: ArticleListComponentProps): JSX.Element =>
                   <p>
                     <Text field={item.fields.Excerpt}></Text>
                   </p>
-                  <Link href={item.url} className="button button-simple">
+                  <NextLink href={item.url} className="button button-simple">
                     {t('Read more') || 'Read more'}
-                  </Link>
+                  </NextLink>
                 </div>
               </div>
               {i === newsItems.length - 1 ? <></> : <hr />}
@@ -185,12 +185,12 @@ const ArticleListGrid = (props: ArticleListComponentProps): JSX.Element => {
         <div className="article-list-grid">
           {newsItems?.map((item) => (
             <div className="article-grid-item" key={item.url}>
-              <Link href={item.url} className="wrapper-link">
+              <NextLink href={item.url} className="wrapper-link">
                 <Image field={item.fields.Thumbnail} />
                 <h3 className="fs-4 mt-3">
                   <Text field={item.fields.Title}></Text>
                 </h3>
-              </Link>
+              </NextLink>
             </div>
           ))}
         </div>
