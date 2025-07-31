@@ -1,8 +1,4 @@
-import {
-  ComponentParams,
-  ComponentRendering,
-  SitecoreProviderPageContext,
-} from '@sitecore-content-sdk/nextjs';
+import { ComponentParams, ComponentRendering } from '@sitecore-content-sdk/nextjs';
 
 /**
  * Shared component props
@@ -24,14 +20,4 @@ export type ComponentProps = {
      */
     EnabledPlaceholders?: string;
   };
-};
-
-/**
- * Component props with context
- * You can access `pageContext` by withSitecore/useSitecore
- * @example withSitecore()(ContentBlock)
- * @example const { pageContext } = useSitecore()
- */
-export type ComponentWithContextProps = ComponentProps & {
-  pageContext: SitecoreProviderPageContext;
 };

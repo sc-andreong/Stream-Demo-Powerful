@@ -33,8 +33,8 @@ const ComponentDefault = (props: AppPromoProps): JSX.Element => (
 
 export const Default = (props: AppPromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   return props.fields ? (
     <div className={`component hero ${props.params?.styles?.trimEnd()}`} id={id ? id : undefined}>

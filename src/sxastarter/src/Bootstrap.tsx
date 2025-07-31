@@ -15,8 +15,8 @@ import {
 const Bootstrap = (props: SitecorePageProps): JSX.Element | null => {
   // Browser ClientSDK init allows for page view events to be tracked
   useEffect(() => {
-    const pageState = props.layout?.sitecore?.context.pageState;
-    const renderingType = props.layout?.sitecore?.context.renderingType;
+    const pageState = props.page?.layout?.sitecore?.context.pageState;
+    const renderingType = props.page?.layout?.sitecore?.context.renderingType;
     if (process.env.NODE_ENV === 'development')
       console.debug('Browser Events SDK is not initialized in development environment');
     else if (
@@ -29,7 +29,7 @@ const Bootstrap = (props: SitecorePageProps): JSX.Element | null => {
         CloudSDK({
           sitecoreEdgeUrl: config.api.edge.edgeUrl,
           sitecoreEdgeContextId: config.api.edge.clientContextId,
-          siteName: props.siteName || config.defaultSite,
+          siteName: props.page?.siteName || config.defaultSite,
           enableBrowserCookie: true,
           // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
           cookieDomain: window.location.hostname.replace(/^www\./, ''),
@@ -41,7 +41,7 @@ const Bootstrap = (props: SitecorePageProps): JSX.Element | null => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.siteName]);
+  }, [props.page?.siteName]);
 
   return null;
 };

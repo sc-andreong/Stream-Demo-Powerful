@@ -13,6 +13,7 @@ import {
 import Scripts from 'src/Scripts';
 import SitecoreStyles from 'src/components/content-sdk/SitecoreStyles';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import importMap from '.sitecore/import-map';
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
@@ -44,7 +45,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <ParallaxProvider>
         <div className={`${mainClassPageEditing} ${contextSiteClass} body`}>
           {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
-            <DesignLibrary {...layoutData} />
+            <DesignLibrary {...layoutData} importMap={importMap} />
           ) : (
             <>
               <header>

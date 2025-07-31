@@ -37,8 +37,8 @@ interface CarouselComponentProps {
 export const Default = (props: CarouselComponentProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const [index, setIndex] = useState(0);
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   const handleNext = () => {
     setIndex((prevIndex) => (prevIndex < props.fields?.items.length - 1 ? prevIndex + 1 : 0));

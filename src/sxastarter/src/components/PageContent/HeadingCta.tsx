@@ -23,8 +23,8 @@ const ComponentDefault = (props: HeadingCtaProps): JSX.Element => (
 
 export const Default = (props: HeadingCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   return props.fields ? (
     <div
@@ -61,8 +61,8 @@ export const Default = (props: HeadingCtaProps): JSX.Element => {
 
 export const Compact = (props: HeadingCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   return props.fields ? (
     <div
@@ -97,8 +97,8 @@ export const Compact = (props: HeadingCtaProps): JSX.Element => {
 
 export const PageHeading = (props: HeadingCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   return props.fields ? (
     <div
@@ -135,8 +135,8 @@ export const PageHeading = (props: HeadingCtaProps): JSX.Element => {
 
 export const Centered = (props: HeadingCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   return props.fields ? (
     <div
