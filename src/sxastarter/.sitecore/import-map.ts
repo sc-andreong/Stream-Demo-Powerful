@@ -50,7 +50,7 @@ const importMap = [
       { name: 'useCallback', value: useCallback },
       { name: 'useMemo', value: useMemo },
       { name: 'useRef', value: useRef },
-      { name: 'React', value: React },
+      { name: 'default', value: React },
     ]
   },
   {
@@ -74,7 +74,7 @@ const importMap = [
   {
     module: 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/src/hooks/useVisibility',
     exports: [
-      { name: 'useVisibility', value: useVisibility },
+      { name: 'default', value: useVisibility },
     ]
   },
   {
@@ -114,7 +114,7 @@ const importMap = [
   {
     module: 'next/link',
     exports: [
-      { name: 'NextLink', value: NextLink },
+      { name: 'default', value: NextLink },
     ]
   },
   {
@@ -144,19 +144,19 @@ const importMap = [
   {
     module: 'next/head',
     exports: [
-      { name: 'Head', value: Head },
+      { name: 'default', value: Head },
     ]
   },
   {
     module: 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/src/lib/sitecore-client',
     exports: [
-      { name: 'client', value: client },
+      { name: 'default', value: client },
     ]
   },
   {
     module: 'next/image',
     exports: [
-      { name: 'NextjsImage', value: NextjsImage },
+      { name: 'default', value: NextjsImage },
     ]
   },
   {
@@ -168,7 +168,7 @@ const importMap = [
   {
     module: 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/next.config',
     exports: [
-      { name: 'nextConfig', value: nextConfig },
+      { name: 'default', value: nextConfig },
     ]
   },
   {
@@ -180,7 +180,7 @@ const importMap = [
   {
     module: 'C:/Repo/Stream-Demo-Powerful/src/sxastarter/sitecore.config',
     exports: [
-      { name: 'config', value: config },
+      { name: 'default', value: config },
     ]
   }
 ];

@@ -13,7 +13,6 @@ import {
 import Scripts from 'src/Scripts';
 import SitecoreStyles from 'src/components/content-sdk/SitecoreStyles';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import importMap from '.sitecore/import-map';
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
@@ -31,6 +30,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
   const theme = layoutData.sitecore.context.theme as string;
   const contextSiteClass = `site-${theme?.toLowerCase()}`;
+  const importMapDynamic = () => import('.sitecore/import-map');
 
   return (
     <>
@@ -45,7 +45,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <ParallaxProvider>
         <div className={`${mainClassPageEditing} ${contextSiteClass} body`}>
           {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
-            <DesignLibrary {...layoutData} importMap={importMap} />
+            <DesignLibrary {...layoutData} loadImportMap={importMapDynamic} />
           ) : (
             <>
               <header>
