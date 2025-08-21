@@ -30,6 +30,7 @@ import * as StatsCounter from 'src/components/PageContent/StatsCounter';
 import * as Quote from 'src/components/PageContent/Quote';
 import * as Questions from 'src/components/PageContent/Questions';
 import * as QA_WB from 'src/components/PageContent/QA_WB';
+import * as QA_Andre_2 from 'src/components/PageContent/QA_Andre_2';
 import * as PromoCta from 'src/components/PageContent/PromoCta';
 import * as ProjectList from 'src/components/PageContent/ProjectList';
 import * as ProjectDetails from 'src/components/PageContent/ProjectDetails';
@@ -96,6 +97,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Quote', Quote],
   ['Questions', Questions],
   ['QA_WB', QA_WB],
+  ['QA_Andre_2', QA_Andre_2],
   ['PromoCta', PromoCta],
   ['ProjectList', ProjectList],
   ['ProjectDetails', ProjectDetails],
