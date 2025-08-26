@@ -24,13 +24,13 @@ const ServerError = (): JSX.Element => (
 );
 
 const Custom500 = (props: SitecorePageProps): JSX.Element => {
-  if (!(props && props.layout)) {
+  if (!(props && props.page?.layout)) {
     return <ServerError />;
   }
 
   return (
-    <SitecoreProvider api={scConfig.api} componentMap={components} layoutData={props.layout}>
-      <Layout layoutData={props.layout} />
+    <SitecoreProvider api={scConfig.api} componentMap={components} page={props.page}>
+      <Layout layoutData={props.page?.layout} />
     </SitecoreProvider>
   );
 };
