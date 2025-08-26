@@ -35,8 +35,8 @@ const ComponentDefault = (props: ParallaxBannerProps): JSX.Element => (
 
 export const Default = (props: ParallaxBannerProps) => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   const BannerContentBlock = (
     <div className="parallax-banner-content-inner">

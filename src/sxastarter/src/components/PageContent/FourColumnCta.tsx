@@ -44,8 +44,8 @@ const ComponentDefault = (props: FourColumnCtaProps): JSX.Element => (
 
 export const Default = (props: FourColumnCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   const Column = ({
     image,

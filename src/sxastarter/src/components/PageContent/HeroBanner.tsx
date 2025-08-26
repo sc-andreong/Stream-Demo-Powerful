@@ -40,8 +40,8 @@ const ComponentDefault = (props: HeroBannerProps): JSX.Element => (
 
 export const Default = (props: HeroBannerProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   return props.fields ? (
     <div

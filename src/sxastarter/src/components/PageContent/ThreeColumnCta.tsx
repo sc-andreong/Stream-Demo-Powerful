@@ -40,8 +40,8 @@ const ComponentDefault = (props: ThreeColumnCtaProps): JSX.Element => (
 
 export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   const Column = ({
     image,
@@ -121,8 +121,8 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
 
 export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   const Column = ({
     image,
@@ -199,8 +199,8 @@ export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
 
 export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   const Column = ({
     image,

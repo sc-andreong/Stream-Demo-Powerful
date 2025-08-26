@@ -9,7 +9,7 @@ export type WelcomeMessageProps = {
 export const Default = ({}: WelcomeMessageProps): JSX.Element => {
   const [guestData, setGuestData] = useState<GuestProfile>();
   const [guestPersonalizedData, setGuestPersonalizedData] = useState<GuestPersonalizedData>();
-  const { pageContext } = useSitecore();
+  const { page } = useSitecore();
 
   interface GuestProfile {
     firstName: string;
@@ -59,7 +59,7 @@ export const Default = ({}: WelcomeMessageProps): JSX.Element => {
       .catch(console.error);
   }, []);
 
-  if (pageContext.pageEditing) {
+  if (page.mode.isEditing) {
     return (
       <div className={`component rich-text contact-form component-spaced`}>
         <div className="container">
