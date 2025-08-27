@@ -1,0 +1,8 @@
+[
+        {
+            "key": "1",
+            "name": "sitecore",
+            "hostName": "https://your-sitecore-instance.com",
+            "language": "en"
+        }
+    ]
