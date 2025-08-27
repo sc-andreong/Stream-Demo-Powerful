@@ -30,7 +30,7 @@ const SitecorePage = ({ notFound, componentProps, page }: SitecorePageProps): JS
   return (
     <ComponentPropsContext value={componentProps || {}}>
       <SitecoreProvider componentMap={components} page={page} api={scConfig.api}>
-        <Layout layoutData={page.layout} />
+        <Layout layoutData={page?.layout} />
       </SitecoreProvider>
     </ComponentPropsContext>
   );
@@ -87,7 +87,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
   if (page) {
     props = {
-      ...page,
+      page,
       dictionary: await client.getDictionary({
         site: page.siteName,
         locale: page.locale,
